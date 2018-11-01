@@ -39,6 +39,7 @@ public class TowerController : MonoBehaviour {
         {
             if (enemyHit.gameObject.CompareTag("enemy"))
             {
+                GameObject.Find("CurrencyManager").GetComponent<currency>().addToBank(enemyHit.gameObject.GetComponent<EnemyMovement>().value);
                 Debug.Log("Fire");
                 fire(enemyHit.gameObject);
                 inDelay = true;
