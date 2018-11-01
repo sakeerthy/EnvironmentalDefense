@@ -6,6 +6,7 @@ public class EnemyMovement : MonoBehaviour {
 
     Rigidbody2D rb;
     public float speed;
+    public int value;
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody2D>();
