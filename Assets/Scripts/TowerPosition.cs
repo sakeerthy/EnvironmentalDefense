@@ -33,6 +33,9 @@ public class TowerPosition : MonoBehaviour
         {
             GetComponent<TowerController>().isPlaced = true;
             placed = true;
+        } else if (Input.GetMouseButtonDown(1))
+        {
+            Destroy(this.gameObject);
         }
     }
 
