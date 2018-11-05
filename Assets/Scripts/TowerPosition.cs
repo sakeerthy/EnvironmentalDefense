@@ -41,10 +41,8 @@ public class TowerPosition : MonoBehaviour
 
     private void OnMouseOver()
     {
-        Debug.Log("MouseOver");
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Hey!");
             if (placed)
             {
                 halo.enabled = !halo.enabled;
