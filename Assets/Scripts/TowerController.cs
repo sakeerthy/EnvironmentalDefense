@@ -13,20 +13,17 @@ public class TowerController : MonoBehaviour {
 	void Start () {
         isPlaced = false;
         inDelay = false;
-		
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (isPlaced)
         {
-            
             if (!inDelay)
             {
                 detectEnemy();
             }
         }
-        
 	}
 
     void detectEnemy()
@@ -35,29 +32,25 @@ public class TowerController : MonoBehaviour {
 
         enemyHit = Physics2D.OverlapCircle(transform.position, towerRange);
 
-        if(enemyHit)
+        if (enemyHit)
         {
             if (enemyHit.gameObject.CompareTag("enemy"))
             {
-                Debug.Log("Fire");
-                GameObject.Find("CurrencyManager").GetComponent<currency>().addToBank(enemyHit.gameObject.GetComponent<EnemyMovement>().value);
-                fire(enemyHit.gameObject);
+                fire(enemyHit.gameObject, enemyHit);
                 inDelay = true;
                 StartCoroutine(fireDelay());
-                
             }
         }
-            
     }
 
-    void fire(GameObject enemy)
+    void fire(GameObject enemy, Collider2D enemyHit)
     {
-        Destroy(enemy);
+        enemy.GetComponent<EnemyMovement>().subtractHealth(5, enemyHit);
     }
 
     IEnumerator fireDelay()
     {
-        
+
         yield return new WaitForSeconds(1 * delay);
         inDelay = false;
         

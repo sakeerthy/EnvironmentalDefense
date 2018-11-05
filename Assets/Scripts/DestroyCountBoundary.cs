@@ -11,7 +11,13 @@ public class DestroyCountBoundary : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         dead_enemies = 0;
-	}
+        displayText();
+    }
+
+    // Update is called once per frame
+    void Update () {
+
+    }
 
     void OnCollisionEnter2D(Collision2D monster)
     {
@@ -20,11 +26,6 @@ public class DestroyCountBoundary : MonoBehaviour {
             dead_enemies++;
         }
         Destroy(monster.gameObject);
-        Debug.Log("Object Destroyed!");
-    }
-
-    // Update is called once per frame
-    void Update () {
         displayText();
     }
 
