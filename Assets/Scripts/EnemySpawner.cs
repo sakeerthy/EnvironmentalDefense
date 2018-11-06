@@ -47,7 +47,7 @@ public class EnemySpawner : MonoBehaviour
 
         randEnemy = Random.Range(0, enemies.Length); //argument depends on which enemy you want to spawn
 
-        Vector3 spawnPos = new Vector3(-10, Random.Range(-3.0f, 3.0f), 0); //x,y,z
+        Vector3 spawnPos = new Vector3(-13, Random.Range(-3.0f, 3.0f), 0); //x,y,z
 
         Instantiate(enemies[randEnemy], spawnPos, gameObject.transform.rotation);
         yield return 0;
