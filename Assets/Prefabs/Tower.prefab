@@ -111,6 +111,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placed: 0
   halo: {fileID: 122359370114250414}
+  towerRange: 2
+  delay: 2
+  inDelay: 0
+  collider: {fileID: 61549917097388462}
 --- !u!114 &114586352965316888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,10 +126,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea0e4abe9f02dc6469a9e73c12c447e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerRange: 2
-  delay: 2
-  isPlaced: 0
-  inDelay: 0
 --- !u!122 &122359370114250414
 Halo:
   m_ObjectHideFlags: 1
@@ -136,7 +136,7 @@ Halo:
   m_Color:
     serializedVersion: 2
     rgba: 4278190335
-  m_Size: 5
+  m_Size: 2
 --- !u!212 &212646505893048870
 SpriteRenderer:
   m_ObjectHideFlags: 1
