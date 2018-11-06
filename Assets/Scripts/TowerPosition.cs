@@ -38,7 +38,7 @@ public class TowerPosition : MonoBehaviour
 
     }
 
-        private void OnMouseOver()
+    private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
         {
