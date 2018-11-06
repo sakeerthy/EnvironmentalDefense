@@ -35,15 +35,12 @@ public class currency : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Mouse button down");
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                Debug.Log("Got a hit");
                 if (hit.transform.name == "addCube")
                 {
-                    Debug.Log("Addcube");
                     addToBank(10);
                 }
             }

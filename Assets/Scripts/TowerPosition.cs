@@ -33,15 +33,16 @@ public class TowerPosition : MonoBehaviour
         {
             GetComponent<TowerController>().isPlaced = true;
             placed = true;
+        } else if (Input.GetMouseButtonDown(1))
+        {
+            Destroy(this.gameObject);
         }
     }
 
     private void OnMouseOver()
     {
-        Debug.Log("MouseOver");
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Hey!");
             if (placed)
             {
                 halo.enabled = !halo.enabled;
