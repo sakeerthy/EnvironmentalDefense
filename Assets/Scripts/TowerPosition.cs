@@ -7,14 +7,15 @@ public class TowerPosition : MonoBehaviour
 
     public bool placed;
     public Behaviour halo;
-
+    public float towerRange;
+    public float delay;
+    public bool inDelay;
     // Use this for initialization
     void Start()
     {
+        inDelay = false;
         halo.enabled = false;
         placed = false;
-       
-
     }
 
     // Update is called once per frame
@@ -31,10 +32,15 @@ public class TowerPosition : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            GetComponent<TowerController>().isPlaced = true;
             placed = true;
         }
-
+        if (placed)
+        {
+            if (!inDelay)
+            {
+                detectEnemy();
+            }
+        }
 
     }
 
@@ -53,6 +59,34 @@ public class TowerPosition : MonoBehaviour
             Debug.Log(gameObject);
             GameObject.Destroy(this.gameObject);
         }
+    }
+
+    void detectEnemy()
+    {
+        Collider2D enemyHit = null;
+
+        enemyHit = Physics2D.OverlapCircle(transform.position, towerRange);
+
+        if (enemyHit)
+        {
+            if (enemyHit.gameObject.CompareTag("enemy"))
+            {
+                fire(enemyHit.gameObject, enemyHit);
+                inDelay = true;
+                StartCoroutine(fireDelay());
+            }
+        }
+    }
+
+    void fire(GameObject enemy, Collider2D enemyHit)
+    {
+        enemy.GetComponent<EnemyMovement>().subtractHealth(5, enemyHit);
+    }
+
+    IEnumerator fireDelay()
+    {
+        yield return new WaitForSeconds(1 * delay);
+        inDelay = false;
 
     }
 }

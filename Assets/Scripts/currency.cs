@@ -10,7 +10,7 @@ public class currency : MonoBehaviour {
     public GameObject newTower;
 	// Use this for initialization
 	void Start () {
-        bank = 100;
+        bank = 30;
         bankText.text = bank.ToString();
 	}
 	
