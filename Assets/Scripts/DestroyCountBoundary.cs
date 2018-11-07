@@ -24,6 +24,7 @@ public class DestroyCountBoundary : MonoBehaviour {
         if (monster.gameObject.tag == "enemy")
         {
             dead_enemies++;
+            GameObject.Find("Happiness").GetComponent<happiness>().subtractHealth(1);
         }
         Destroy(monster.gameObject);
         displayText();
