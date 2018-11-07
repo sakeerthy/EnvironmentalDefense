@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TowerPosition : MonoBehaviour
 {
@@ -10,14 +11,19 @@ public class TowerPosition : MonoBehaviour
     public float towerRange;
     public float delay;
     public bool inDelay;
-    public Behaviour collider;
+    public Behaviour collide;
+    public Image healthBar;
+    public float health;
+    const int initialHealth = 10;
     // Use this for initialization
     void Start()
     {
+        health = initialHealth;
+        healthBar.fillAmount = health / initialHealth;
         inDelay = false;
         halo.enabled = false;
         placed = false;
-        collider.enabled = false;
+        collide.enabled = false;
     }
 
     // Update is called once per frame
@@ -35,7 +41,7 @@ public class TowerPosition : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             placed = true;
-            collider.enabled = true;
+            collide.enabled = true;
         }
         if (placed)
         {
@@ -43,6 +49,10 @@ public class TowerPosition : MonoBehaviour
             {
                 detectEnemy();
             }
+        }
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
         }
 
     }
@@ -58,8 +68,6 @@ public class TowerPosition : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("Hi");
-            Debug.Log(gameObject);
             GameObject.Destroy(this.gameObject);
         }
     }
@@ -91,5 +99,11 @@ public class TowerPosition : MonoBehaviour
         yield return new WaitForSeconds(1 * delay);
         inDelay = false;
 
+    }
+
+    public void subtractHealth(int damage)
+    {
+        health = health - damage;
+        healthBar.fillAmount = health / initialHealth;
     }
 }

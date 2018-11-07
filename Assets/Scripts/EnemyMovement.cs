@@ -12,8 +12,9 @@ public class EnemyMovement : MonoBehaviour {
     public float health;
     public Image healthBar;
     const int initialHealth = 10;
-	// Use this for initialization
-	void Start () {
+    public Collider2D tower;
+    // Use this for initialization
+    void Start () {
         health = initialHealth;
         healthBar.fillAmount = health / initialHealth;
         rb = GetComponent<Rigidbody2D>();
@@ -33,5 +34,12 @@ public class EnemyMovement : MonoBehaviour {
             GameObject.Find("CurrencyManager").GetComponent<currency>().addToBank(enemyHit.gameObject.GetComponent<EnemyMovement>().value);
         }
         healthBar.fillAmount = health / initialHealth;
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.tag == "tower"){
+            other.gameObject.GetComponent<TowerPosition>().subtractHealth(1);
+        }
     }
 }
