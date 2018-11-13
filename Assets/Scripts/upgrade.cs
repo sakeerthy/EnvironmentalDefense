@@ -13,7 +13,7 @@ public class upgrade : MonoBehaviour {
 	void Update () {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Upgrade Tower");
+            //Debug.Log("Upgrade Tower");
         }
     }
 
@@ -21,7 +21,7 @@ public class upgrade : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Upgrade Tower");
+            //Debug.Log("Upgrade Tower");
         }
     }
 }
