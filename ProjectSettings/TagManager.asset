@@ -6,6 +6,7 @@ TagManager:
   tags:
   - enemy
   - tower
+  - Collison effect
   layers:
   - Default
   - TransparentFX

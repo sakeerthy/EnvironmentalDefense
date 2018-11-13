@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour {
     public int value;
     public float health;
     public Image healthBar;
+    private float coll_timer;
     const int initialHealth = 10;
     public Collider2D tower;
     // Use this for initialization
@@ -26,6 +27,8 @@ public class EnemyMovement : MonoBehaviour {
         if (health <= 0) {
             Destroy(this.gameObject);
         }
+        if (Time.fixedTime - coll_timer >= 1.0f)
+            rb.velocity = new Vector2(1, 0) * speed;
     }
 
     public void subtractHealth(int damage, Collider2D enemyHit) {
@@ -40,6 +43,7 @@ public class EnemyMovement : MonoBehaviour {
     {
         if(other.gameObject.tag == "tower"){
             other.gameObject.GetComponent<TowerPosition>().subtractHealth(1);
+            coll_timer = Time.fixedTime;
         }
     }
 }
