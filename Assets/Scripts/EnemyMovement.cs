@@ -11,6 +11,7 @@ public class EnemyMovement : MonoBehaviour {
     public int value;
     public float health;
     public Image healthBar;
+
     private float coll_timer;
     const int initialHealth = 10;
     public Collider2D tower;
@@ -27,6 +28,7 @@ public class EnemyMovement : MonoBehaviour {
         if (health <= 0) {
             Destroy(this.gameObject);
         }
+
         if (Time.fixedTime - coll_timer >= 1.0f)
             rb.velocity = new Vector2(1, 0) * speed;
     }

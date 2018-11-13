@@ -8,6 +8,7 @@ public class currency : MonoBehaviour {
     public int bank;
     public Text bankText;
     public GameObject newTower;
+    public GameObject CannonTower;
 	// Use this for initialization
 	void Start () {
         bank = 30;
@@ -25,10 +26,17 @@ public class currency : MonoBehaviour {
         bankText.text = bank.ToString();
     }
 
-    public void subtractFromBank(int amount) {
+    public void subtractFromBank(int amount, string name) {
         bank -= amount;
         bankText.text = bank.ToString();
-        Instantiate(newTower);
+        if (name == "cannon")
+        {
+            Instantiate(CannonTower);
+        } else if (name  == "subtractCube")
+        {
+            Instantiate(newTower);
+        }
+        
     }
 
     void addCurrency()
@@ -64,7 +72,19 @@ public class currency : MonoBehaviour {
                     }
                     else
                     {
-                        subtractFromBank(10);
+                        subtractFromBank(10, hit.transform.name);
+                    }
+                }
+                else if (hit.transform.name == "cannon")
+                {
+                    var amount = bank;
+                    if (amount < 15)
+                    {
+                        Debug.Log("Not enough money");
+                    }
+                    else
+                    {
+                        subtractFromBank(15, hit.transform.name);
                     }
                 }
             }

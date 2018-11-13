@@ -14,6 +14,7 @@ public class TowerPosition : MonoBehaviour
     public Behaviour collide;
     public Image healthBar;
     public float health;
+    public string towerType;
     const int initialHealth = 10;
     // Use this for initialization
     void Start()
@@ -82,16 +83,29 @@ public class TowerPosition : MonoBehaviour
         {
             if (enemyHit.gameObject.CompareTag("enemy"))
             {
-                fire(enemyHit.gameObject, enemyHit);
+                
+                if (towerType == "Cannon")
+                {
+                    fire(enemyHit.gameObject, enemyHit, 10);
+                    Collider2D[] nearbyEnemies;
+                    nearbyEnemies = Physics2D.OverlapCircleAll(enemyHit.gameObject.transform.position, 1);
+                    foreach(Collider2D enemy in nearbyEnemies)
+                    {
+                        fire(enemy.gameObject, enemy, 2);
+                    }
+                } else
+                {
+                    fire(enemyHit.gameObject, enemyHit, 5);
+                }
                 inDelay = true;
                 StartCoroutine(fireDelay());
             }
         }
     }
 
-    void fire(GameObject enemy, Collider2D enemyHit)
+    void fire(GameObject enemy, Collider2D enemyHit, int damage)
     {
-        enemy.GetComponent<EnemyMovement>().subtractHealth(5, enemyHit);
+        enemy.GetComponent<EnemyMovement>().subtractHealth(damage, enemyHit);
     }
 
     IEnumerator fireDelay()
