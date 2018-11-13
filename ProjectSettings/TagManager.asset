@@ -42,6 +42,9 @@ TagManager:
   - name: EnemyLayer
     uniqueID: 3938433203
     locked: 0
+  - name: TowerLayer
+    uniqueID: 146584725
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

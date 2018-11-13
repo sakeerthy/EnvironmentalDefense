@@ -6,8 +6,11 @@ using UnityEngine;
 public class currency : MonoBehaviour {
 
     public int bank;
+    public int towerPrice;
+    public int knockbackTowerPrice;
     public Text bankText;
     public GameObject newTower;
+    public GameObject newKnockbackTower;
 	// Use this for initialization
 	void Start () {
         bank = 30;
@@ -28,7 +31,7 @@ public class currency : MonoBehaviour {
     public void subtractFromBank(int amount) {
         bank -= amount;
         bankText.text = bank.ToString();
-        Instantiate(newTower);
+        
     }
 
     void addCurrency()
@@ -55,16 +58,34 @@ public class currency : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.name == "subtractCube")
+
+                //ADD MORE TOWER PRICES HERE
+
+                if (hit.transform.name == "buyStandardTower")
                 {
-                    var amount = bank;
-                    if (amount < 10)
+                    
+                    if (bank < towerPrice)
                     {
                         Debug.Log("Not enough money");
                     }
                     else
                     {
-                        subtractFromBank(10);
+                        subtractFromBank(towerPrice);
+                        Instantiate(newTower);
+                    }
+                }
+
+                if (hit.transform.name == "buyKnockbackTower")
+                {
+                    Debug.Log("In here");
+                    if (bank < knockbackTowerPrice)
+                    {
+                        Debug.Log("Not enough money");
+                    }
+                    else
+                    {
+                        subtractFromBank(knockbackTowerPrice);
+                        Instantiate(newKnockbackTower);
                     }
                 }
             }

@@ -10,14 +10,14 @@ public class TowerPosition : MonoBehaviour
     public float towerRange;
     public float delay;
     public bool inDelay;
-    public Behaviour collider;
+    public Behaviour collider2D;
     // Use this for initialization
     void Start()
     {
         inDelay = false;
         halo.enabled = false;
         placed = false;
-        collider.enabled = false;
+        collider2D.enabled = false;
     }
 
     // Update is called once per frame
@@ -35,7 +35,7 @@ public class TowerPosition : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             placed = true;
-            collider.enabled = true;
+            collider2D.enabled = true;
         }
         if (placed)
         {
