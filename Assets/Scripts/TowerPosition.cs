@@ -18,6 +18,11 @@ public class TowerPosition : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+        //).renderer.material.color.a = 0.5f;
+
+
+        //transform.renderer.material.color.a = 0.5f; // a is the alpha value.
         health = initialHealth;
         healthBar.fillAmount = health / initialHealth;
         inDelay = false;
@@ -42,6 +47,8 @@ public class TowerPosition : MonoBehaviour
         {
             placed = true;
             collide.enabled = true;
+            transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
+
         }
         if (placed)
         {
@@ -53,6 +60,11 @@ public class TowerPosition : MonoBehaviour
         if (health <= 0)
         {
             Destroy(this.gameObject);
+        }
+        if (halo.enabled) {
+            transform.GetChild(2).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
+        } else {
+            transform.GetChild(2).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0f);
         }
 
     }
@@ -105,5 +117,10 @@ public class TowerPosition : MonoBehaviour
     {
         health = health - damage;
         healthBar.fillAmount = health / initialHealth;
+    }
+
+    void upgrade()
+    {
+
     }
 }
