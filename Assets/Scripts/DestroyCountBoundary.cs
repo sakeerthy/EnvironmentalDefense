@@ -18,7 +18,9 @@ public class DestroyCountBoundary : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (alpha >= 0.0f)
+        if (alpha == 0.0f)
+            GameObject.Find("Collision_effect").transform.localScale = new Vector3(0, 0, 0);
+        if (alpha > 0.0f)
         {
             // Reduce alpha by fadeSpeed amount.
             alpha -= fadeSpeed * Time.deltaTime;
@@ -36,8 +38,8 @@ public class DestroyCountBoundary : MonoBehaviour {
         {
             dead_enemies++;
             GameObject.Find("Happiness").GetComponent<happiness>().subtractHealth(1);
-            GameObject coll = GameObject.Find("Collision_effect");
             alpha = 1.0f;
+            GameObject.Find("Collision_effect").transform.localScale = new Vector3(25, 25, 1);
         }
         Destroy(monster.gameObject);
         displayText();
