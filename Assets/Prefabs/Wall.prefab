@@ -241,7 +241,7 @@ MonoBehaviour:
   healthBar: {fileID: 114039246473000740}
   health: 0
   towerType: Wall
-  initialHealth: 50
+  initialHealth: 30
 --- !u!114 &114800243123553732
 MonoBehaviour:
   m_ObjectHideFlags: 1
