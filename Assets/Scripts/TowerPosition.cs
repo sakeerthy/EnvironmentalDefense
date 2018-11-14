@@ -25,6 +25,7 @@ public class TowerPosition : MonoBehaviour
         halo.enabled = false;
         placed = false;
         collide.enabled = false;
+        transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
     }
 
     // Update is called once per frame
@@ -43,6 +44,7 @@ public class TowerPosition : MonoBehaviour
         {
             placed = true;
             collide.enabled = true;
+            transform.GetChild(0).GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1f);
         }
         if (placed)
         {
