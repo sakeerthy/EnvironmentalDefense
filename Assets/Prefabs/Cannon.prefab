@@ -241,6 +241,7 @@ MonoBehaviour:
   healthBar: {fileID: 114039246473000740}
   health: 0
   towerType: Cannon
+  initialHealth: 10
 --- !u!114 &114800243123553732
 MonoBehaviour:
   m_ObjectHideFlags: 1

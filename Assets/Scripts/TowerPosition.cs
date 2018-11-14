@@ -15,7 +15,7 @@ public class TowerPosition : MonoBehaviour
     public Image healthBar;
     public float health;
     public string towerType;
-    const int initialHealth = 10;
+    public int initialHealth;
     // Use this for initialization
     void Start()
     {
@@ -91,9 +91,9 @@ public class TowerPosition : MonoBehaviour
                     nearbyEnemies = Physics2D.OverlapCircleAll(enemyHit.gameObject.transform.position, 1);
                     foreach(Collider2D enemy in nearbyEnemies)
                     {
-                        fire(enemy.gameObject, enemy, 2);
+                        fire(enemy.gameObject, enemy, 3);
                     }
-                } else
+                } else if (towerType == "Basic")
                 {
                     fire(enemyHit.gameObject, enemyHit, 5);
                 }

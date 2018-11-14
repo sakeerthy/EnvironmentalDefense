@@ -9,6 +9,7 @@ public class currency : MonoBehaviour {
     public Text bankText;
     public GameObject newTower;
     public GameObject CannonTower;
+    public GameObject WallTower;
 	// Use this for initialization
 	void Start () {
         bank = 30;
@@ -35,6 +36,9 @@ public class currency : MonoBehaviour {
         } else if (name  == "subtractCube")
         {
             Instantiate(newTower);
+        } else if (name == "wall")
+        {
+            Instantiate(WallTower);
         }
         
     }
@@ -75,7 +79,7 @@ public class currency : MonoBehaviour {
                         subtractFromBank(10, hit.transform.name);
                     }
                 }
-                else if (hit.transform.name == "cannon")
+                else if (hit.transform.name == "cannon" || hit.transform.name == "wall")
                 {
                     var amount = bank;
                     if (amount < 15)
