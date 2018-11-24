@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DestroyCountBoundary : MonoBehaviour {
     public float alpha = 0f;
-    public float fadeSpeed = 100f;
+    public float fadeSpeed = 1f;
     public int dead_enemies;
     public int max_dead;
     public Text enemyCounter;
@@ -38,7 +38,7 @@ public class DestroyCountBoundary : MonoBehaviour {
         {
             dead_enemies++;
             GameObject.Find("Happiness").GetComponent<happiness>().subtractHealth(1);
-            alpha = 0.75f;
+            alpha = 1f;
             GameObject.Find("Collision_effect").transform.localScale = new Vector3(25, 25, 1);
         }
         Destroy(monster.gameObject);
