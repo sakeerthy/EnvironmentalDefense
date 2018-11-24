@@ -44,6 +44,11 @@ public class MenuScript : MonoBehaviour
                 {
                     SceneManager.LoadScene(sceneName: "Instructions");
                 }
+                else if (hit.transform.name == "Quit")
+                {
+                    UnityEditor.EditorApplication.isPlaying = false;
+                    Application.Quit();
+                }
             }
         }
     }
