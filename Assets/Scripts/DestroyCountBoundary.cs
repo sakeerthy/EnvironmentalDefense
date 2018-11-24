@@ -38,7 +38,7 @@ public class DestroyCountBoundary : MonoBehaviour {
         {
             dead_enemies++;
             GameObject.Find("Happiness").GetComponent<happiness>().subtractHealth(1);
-            alpha = 1f;
+            alpha = .8f;
             GameObject.Find("Collision_effect").transform.localScale = new Vector3(25, 25, 1);
         }
         Destroy(monster.gameObject);

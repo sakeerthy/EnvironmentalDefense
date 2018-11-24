@@ -36,6 +36,14 @@ public class MenuScript : MonoBehaviour
                     UnityEditor.EditorApplication.isPlaying = false;
                     Application.Quit();
                 }
+                else if(hit.transform.name == "MainMenu")
+                {
+                    SceneManager.LoadScene(sceneName: "MainMenu");
+                }
+                else if (hit.transform.name == "Instructions")
+                {
+                    SceneManager.LoadScene(sceneName: "Instructions");
+                }
             }
         }
     }
