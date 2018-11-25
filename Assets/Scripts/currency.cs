@@ -18,8 +18,7 @@ public class currency : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        addCurrency();
-        subtractCurrency();
+        GameButtons();
 	}
 
     public void addToBank(int amount) {
@@ -43,7 +42,7 @@ public class currency : MonoBehaviour {
         
     }
 
-    void addCurrency()
+    void GameButtons()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -55,19 +54,7 @@ public class currency : MonoBehaviour {
                 {
                     addToBank(10);
                 }
-            }
-        }
-    }
-
-    void subtractCurrency()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out hit))
-            {
-                if (hit.transform.name == "subtractCube")
+                else if (hit.transform.name == "subtractCube")
                 {
                     var amount = bank;
                     if (amount < 10)
@@ -90,6 +77,11 @@ public class currency : MonoBehaviour {
                     {
                         subtractFromBank(15, hit.transform.name);
                     }
+                }
+                else if (hit.transform.name == "Quit")
+                {
+                    UnityEditor.EditorApplication.isPlaying = false;
+                    Application.Quit();
                 }
             }
         }
