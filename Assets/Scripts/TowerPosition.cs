@@ -16,6 +16,7 @@ public class TowerPosition : MonoBehaviour
     public float health;
     public string towerType;
     public int initialHealth;
+
     // Use this for initialization
     void Start()
     {
@@ -55,6 +56,8 @@ public class TowerPosition : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+
+        this.gameObject.transform.GetChild(0).gameObject.SetActive(halo.enabled);
 
     }
 
@@ -120,4 +123,5 @@ public class TowerPosition : MonoBehaviour
         health = health - damage;
         healthBar.fillAmount = health / initialHealth;
     }
+
 }

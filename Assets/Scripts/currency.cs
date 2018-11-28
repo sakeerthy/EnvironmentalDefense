@@ -21,6 +21,17 @@ public class currency : MonoBehaviour {
         GameButtons();
 	}
 
+    public bool upgradeTower(int amount) {
+        if ((bank - amount) < 0) {
+            Debug.Log("Not enough coin");
+            return false;
+        } else {
+            bank -= amount;
+            bankText.text = bank.ToString();
+            return true;
+        }
+    }
+
     public void addToBank(int amount) {
         bank += amount;
         bankText.text = bank.ToString();
