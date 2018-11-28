@@ -77,7 +77,7 @@ public class currency : MonoBehaviour {
                         subtractFromBank(10, hit.transform.name);
                     }
                 }
-                else if (hit.transform.name == "cannon" || hit.transform.name == "wall")
+                else if (hit.transform.name == "cannon")
                 {
                     var amount = bank;
                     if (amount < 15)
@@ -87,6 +87,17 @@ public class currency : MonoBehaviour {
                     else
                     {
                         subtractFromBank(15, hit.transform.name);
+                    }
+                } else if (hit.transform.name == "wall")
+                {
+                    var amount = bank;
+                    if (amount < 50)
+                    {
+                        Debug.Log("Not enough money");
+                    }
+                    else
+                    {
+                        subtractFromBank(50, hit.transform.name);
                     }
                 }
                 else if (hit.transform.name == "Quit")
