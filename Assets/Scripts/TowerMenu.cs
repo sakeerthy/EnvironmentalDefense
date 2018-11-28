@@ -4,32 +4,43 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class TowerMenu : MonoBehaviour {
-    
+
+//public Canvas towerCanvas;
     public Button yourButton;
     public bool buttonisclicked;
-    
+// private var childCanvas : Transform;
+
 
     // Use this for initialization
     void Start () {
         Button btn = yourButton;
         btn.onClick.AddListener(OpenMenu);
         buttonisclicked = false;
+        transform.GetChild(1).gameObject.SetActive(false);
+        // childCanvas = transform.Find("TowerCanvas");
     }
 
     void OpenMenu()
     {
         Debug.Log("You have clicked the button!");
-        buttonisclicked = true;
+        if (buttonisclicked)
+        {
+            buttonisclicked = false;
+            transform.GetChild(1).gameObject.SetActive(false);
+//childCanvas.active = false;
+        } else
+        {
+            buttonisclicked = true;
+            transform.GetChild(1).gameObject.SetActive(true);
+// childCanvas.active = true;
+        }
+        
     }
 
 
     private void OnGUI()
     {
         //check if our button click boolean is true
-        if (buttonisclicked)
-        {
-            //create gui menu, refer to linked documentation to learn how to create gui elements via script, and learn about various styling techniques
-        }
     }
 
     // Update is called once per frame
