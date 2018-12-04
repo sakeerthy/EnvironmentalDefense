@@ -10,6 +10,8 @@ public class currency : MonoBehaviour {
     public GameObject newTower;
     public GameObject CannonTower;
     public GameObject WallTower;
+
+
 	// Use this for initialization
 	void Start () {
         bank = 30;
