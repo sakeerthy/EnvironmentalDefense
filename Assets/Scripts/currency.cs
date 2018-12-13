@@ -102,11 +102,6 @@ public class currency : MonoBehaviour {
                         subtractFromBank(50, hit.transform.name);
                     }
                 }
-                else if (hit.transform.name == "Quit")
-                {
-                    UnityEditor.EditorApplication.isPlaying = false;
-                    Application.Quit();
-                }
             }
         }
     }
