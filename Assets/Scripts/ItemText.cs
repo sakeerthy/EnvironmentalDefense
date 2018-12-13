@@ -22,7 +22,7 @@ public class ItemText : MonoBehaviour {
             }
             
             textstatus = true;
-            Instantiate(popuptext, new Vector3(transform.position.x, transform.position.y + 2, 0), popuptext.rotation);
+            Instantiate(popuptext, new Vector3(transform.position.x - 4, transform.position.y + 1, 0), popuptext.rotation);
         }
 
     }

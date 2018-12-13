@@ -15,7 +15,7 @@ public class currency : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         bank = 30;
-        bankText.text = bank.ToString();
+        bankText.text = string.Concat("$",bank.ToString());
 	}
 	
 	// Update is called once per frame
