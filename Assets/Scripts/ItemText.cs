@@ -13,10 +13,16 @@ public class ItemText : MonoBehaviour {
             if (gameObject.name == "subtractCube")
             {
                 popuptext.GetComponent<TextMesh>().text = "Basic tower\nLow health and damage\nCost: 10";
-            } else if (gameObject.name == "cannon")
+            }
+            else if (gameObject.name == "GasTower")
+            {
+                popuptext.GetComponent<TextMesh>().text = "Basic tower\nLow health and damage\nCost: 10";
+            }
+            else if (gameObject.name == "cannon")
             {
                 popuptext.GetComponent<TextMesh>().text = "Cannon with splash damage\nhigh damage\nCost: 15";
-            } else if (gameObject.name == "wall")
+            } 
+            else if (gameObject.name == "wall")
             {
                 popuptext.GetComponent<TextMesh>().text = "Wall does no damage\nVery high health\nCost: 50";
             }
