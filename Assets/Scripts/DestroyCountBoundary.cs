@@ -12,8 +12,7 @@ public class DestroyCountBoundary : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        dead_enemies = 0;
-        displayText();
+
     }
 
     // Update is called once per frame
@@ -42,12 +41,6 @@ public class DestroyCountBoundary : MonoBehaviour {
             GameObject.Find("Collision_effect").transform.localScale = new Vector3(25, 25, 1);
         }
         Destroy(monster.gameObject);
-        displayText();
-    }
-
-    void displayText()
-    {
-        enemyCounter.text = "Enemies Passed: " + dead_enemies;
     }
 
 }

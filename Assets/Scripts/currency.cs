@@ -15,7 +15,7 @@ public class currency : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         bank = 30;
-        bankText.text = bank.ToString();
+        bankText.text = string.Concat("$",bank.ToString());
 	}
 	
 	// Update is called once per frame
@@ -101,11 +101,6 @@ public class currency : MonoBehaviour {
                     {
                         subtractFromBank(50, hit.transform.name);
                     }
-                }
-                else if (hit.transform.name == "Quit")
-                {
-                    UnityEditor.EditorApplication.isPlaying = false;
-                    Application.Quit();
                 }
             }
         }
