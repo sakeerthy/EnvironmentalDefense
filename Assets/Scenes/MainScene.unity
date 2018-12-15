@@ -505,6 +505,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 1354441609867116, guid: f2321b01dc556ef4f9d6a90027f0134b, type: 2}
+  - {fileID: 1354441609867116, guid: 7d7b17b7c54a5b249828422d4ec85073, type: 2}
+  - {fileID: 1354441609867116, guid: 236f8b0ab45cab84a9e21d946bbd87d5, type: 2}
   spawnValues: {x: 0, y: 0, z: 0}
   spawnWait: 1
   startWait: 0
