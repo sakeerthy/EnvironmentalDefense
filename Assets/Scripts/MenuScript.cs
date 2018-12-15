@@ -6,10 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
-
     // Use this for initialization
     void Start()
     {
+        GetComponent<AudioSource>().loop = true;
+        GetComponent<AudioSource>().Play();
 
     }
 
