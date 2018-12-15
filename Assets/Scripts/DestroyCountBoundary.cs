@@ -35,6 +35,7 @@ public class DestroyCountBoundary : MonoBehaviour {
     {
         if (monster.gameObject.tag == "enemy")
         {
+            GetComponent<AudioSource>().Play();
             dead_enemies++;
             GameObject.Find("Happiness").GetComponent<happiness>().subtractHealth(1);
             alpha = .8f;
