@@ -26,6 +26,8 @@ public class TowerPosition : MonoBehaviour
         halo.enabled = false;
         placed = false;
         collide.enabled = false;
+        transform.GetChild(0).gameObject.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -56,8 +58,7 @@ public class TowerPosition : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
-
-        this.gameObject.transform.GetChild(0).gameObject.SetActive(halo.enabled);
+        transform.GetChild(0).gameObject.SetActive(halo.enabled);
 
     }
 
