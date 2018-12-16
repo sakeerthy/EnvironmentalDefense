@@ -10,6 +10,7 @@ public class currency : MonoBehaviour {
     public GameObject newTower;
     public GameObject CannonTower;
     public GameObject WallTower;
+    public GameObject knockbackTower;
 
 
 	// Use this for initialization
@@ -51,6 +52,9 @@ public class currency : MonoBehaviour {
         } else if (name == "wall")
         {
             Instantiate(WallTower);
+        } else if (name == "buyKnockbackTower")
+        {
+            Instantiate(knockbackTower);
         }
         
     }
@@ -90,7 +94,8 @@ public class currency : MonoBehaviour {
                     {
                         subtractFromBank(15, hit.transform.name);
                     }
-                } else if (hit.transform.name == "wall")
+                }
+                else if (hit.transform.name == "wall")
                 {
                     var amount = bank;
                     if (amount < 50)
@@ -102,6 +107,19 @@ public class currency : MonoBehaviour {
                         subtractFromBank(50, hit.transform.name);
                     }
                 }
+                else if (hit.transform.name == "buyKnockbackTower")
+                {
+                    var amount = bank;
+                    if(amount < 40)
+                    {
+                        Debug.Log("Not enough money");
+                    }
+                    else
+                    {
+                        subtractFromBank(40, hit.transform.name);
+                    }
+                }
+
             }
         }
     }
