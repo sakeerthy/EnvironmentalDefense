@@ -30,7 +30,7 @@ public class currency : MonoBehaviour {
             return false;
         } else {
             bank -= amount;
-            bankText.text = bank.ToString();
+            bankText.text = string.Concat("$",bank.ToString());
             return true;
         }
     }
