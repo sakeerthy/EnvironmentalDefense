@@ -114,11 +114,11 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1085662708582838}
-  m_Text: 'Basic tower
+  m_Text: 'Wall does no damage
 
-    Low health and damage
+    Very high health
 
-    $10'
+    $50'
   m_OffsetZ: 0
   m_CharacterSize: 0.15
   m_LineSpacing: 1
