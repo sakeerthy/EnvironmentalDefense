@@ -26,6 +26,8 @@ public class EnemyMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         if (health <= 0) {
+            Debug.Log("killa");
+            GameObject.Find("Happiness").GetComponent<happiness>().addHealth(0.3f);
             Destroy(this.gameObject);
         }
 

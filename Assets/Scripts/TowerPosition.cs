@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,10 +16,12 @@ public class TowerPosition : MonoBehaviour
     public float health;
     public string towerType;
     public int initialHealth;
+    public int upgrade;
 
     // Use this for initialization
     void Start()
     {
+        upgrade = 0;
         health = initialHealth;
         healthBar.fillAmount = health / initialHealth;
         inDelay = false;
@@ -27,6 +29,7 @@ public class TowerPosition : MonoBehaviour
         placed = false;
         collide.enabled = false;
         transform.GetChild(0).gameObject.SetActive(false);
+        InvokeRepeating("decreaseHappiness", 1.0f, 1.0f);
 
     }
 
@@ -74,6 +77,13 @@ public class TowerPosition : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             GameObject.Destroy(this.gameObject);
+        }
+    }
+
+    void decreaseHappiness() {
+        if (upgrade == 0) {
+            GameObject.Find("Happiness").GetComponent<happiness>().subtractHealth(0.1f);
+
         }
     }
 
