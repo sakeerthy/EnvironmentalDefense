@@ -28,7 +28,7 @@ public class ItemText : MonoBehaviour {
             }
             else if (gameObject.name == "buyKnockbackTower")
             {
-                popuptext.GetComponent<TextMesh>().text = "Kocks back enemies\n$40";
+                popuptext.GetComponent<TextMesh>().text = "Knocks back enemies\n$40";
             }
 
             textstatus = true;
