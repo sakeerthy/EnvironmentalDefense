@@ -19,6 +19,7 @@ public class TowerPosition : MonoBehaviour
     public int upgrade;
     public Sprite initial;
     public Sprite upgraded;
+    public ParticleSystem gas;
 
     // Use this for initialization
     void Start()
@@ -28,12 +29,17 @@ public class TowerPosition : MonoBehaviour
         healthBar.fillAmount = health / initialHealth;
         inDelay = false;
         halo.enabled = false;
-        placed = false;
+        //placed = false;
         collide.enabled = false;
         transform.GetChild(0).gameObject.SetActive(false);
         InvokeRepeating("decreaseHappiness", 1.0f, 1.0f);
         GetComponent<SpriteRenderer>().sprite = initial;
-
+        if (gas)
+        {
+            gas.Play();
+            ParticleSystem.EmissionModule em = gas.emission;
+            em.enabled = true;
+        }
     }
 
     // Update is called once per frame
@@ -65,7 +71,9 @@ public class TowerPosition : MonoBehaviour
             Destroy(this.gameObject);
         }
         transform.GetChild(0).gameObject.SetActive(halo.enabled);
-
+        if (upgrade == 1) {
+            gas.Stop();
+        }
     }
 
     public void upgradeTower() {
