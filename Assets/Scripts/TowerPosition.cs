@@ -17,6 +17,8 @@ public class TowerPosition : MonoBehaviour
     public string towerType;
     public int initialHealth;
     public int upgrade;
+    public Sprite initial;
+    public Sprite upgraded;
 
     // Use this for initialization
     void Start()
@@ -30,6 +32,7 @@ public class TowerPosition : MonoBehaviour
         collide.enabled = false;
         transform.GetChild(0).gameObject.SetActive(false);
         InvokeRepeating("decreaseHappiness", 1.0f, 1.0f);
+        GetComponent<SpriteRenderer>().sprite = initial;
 
     }
 
@@ -63,6 +66,13 @@ public class TowerPosition : MonoBehaviour
         }
         transform.GetChild(0).gameObject.SetActive(halo.enabled);
 
+    }
+
+    public void upgradeTower() {
+        if (upgrade == 0) {
+            upgrade++;
+            GetComponent<SpriteRenderer>().sprite = upgraded;
+        }
     }
 
     private void OnMouseOver()

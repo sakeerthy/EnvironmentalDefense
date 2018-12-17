@@ -17,12 +17,23 @@ public class upgrade : MonoBehaviour {
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (GameObject.Find("CurrencyManager").GetComponent<currency>().upgradeTower(30)) {
-                Debug.Log("Upgraded!!");
-                GameObject.Find("Happiness").GetComponent<happiness>().addHealth(5);
-                //transform.parent.gameObject.transform.localScale += new Vector3(1.5f, 1.5f, 1.5f);
-            } else {
-                Debug.Log("You poor");
+            if (transform.parent.gameObject.GetComponent<TowerPosition>().upgrade == 0)
+            {
+                if (GameObject.Find("CurrencyManager").GetComponent<currency>().upgradeTower(30))
+                {
+                    Debug.Log("Upgraded!!");
+                    GameObject.Find("Happiness").GetComponent<happiness>().addHealth(5);
+                    transform.parent.gameObject.GetComponent<TowerPosition>().upgradeTower();
+                    //transform.parent.gameObject.transform.localScale += new Vector3(1.5f, 1.5f, 1.5f);
+                }
+                else
+                {
+                    Debug.Log("You poor");
+                }
+            }
+            else
+            {
+                Debug.Log("Max Upgrade Reached!");
             }
         }
     }
