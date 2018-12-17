@@ -114,7 +114,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1085662708582838}
-  m_Text: 'Kocks back enemies
+  m_Text: 'Knocks back enemies
 
     $40'
   m_OffsetZ: 0
