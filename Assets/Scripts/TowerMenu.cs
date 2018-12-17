@@ -22,7 +22,6 @@ public class TowerMenu : MonoBehaviour {
 
     void OpenMenu()
     {
-        Debug.Log("You have clicked the button!");
         if (buttonisclicked)
         {
             buttonisclicked = false;

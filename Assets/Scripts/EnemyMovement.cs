@@ -10,10 +10,10 @@ public class EnemyMovement : MonoBehaviour {
     public float speed;
     public int value;
     public float health;
+    public float initialHealth;
     public Image healthBar;
 
     private float coll_timer;
-    const int initialHealth = 10;
     public Collider2D tower;
     // Use this for initialization
     void Start () {

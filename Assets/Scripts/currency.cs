@@ -26,11 +26,11 @@ public class currency : MonoBehaviour {
 
     public bool upgradeTower(int amount) {
         if ((bank - amount) < 0) {
-            Debug.Log("Not enough coin");
+            Debug.Log("Not enough money");
             return false;
         } else {
             bank -= amount;
-            bankText.text = bank.ToString();
+            bankText.text = string.Concat("$",bank.ToString());
             return true;
         }
     }
