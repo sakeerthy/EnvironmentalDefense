@@ -6,9 +6,9 @@ public class quitpos : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Debug.Log(transform.position);
-        Debug.Log(Screen.width);
-        Debug.Log(Camera.main.ScreenToWorldPoint(new Vector3(Screen.width*.8f, Screen.height*.8f, 0)));
+        //Debug.Log(transform.position);
+        //Debug.Log(Screen.width);
+        //Debug.Log(Camera.main.ScreenToWorldPoint(new Vector3(Screen.width*.8f, Screen.height*.8f, 0)));
         //transform.position = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width * .95f, Screen.height * .95f, 100));
 	}
 	

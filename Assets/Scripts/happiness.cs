@@ -33,13 +33,13 @@ public class happiness : MonoBehaviour {
         }
     }
 
-    public void subtractHealth(int damage)
+    public void subtractHealth(float damage)
     {
         health = health - damage;
         healthBar.fillAmount = health / initialHealth;
     }
 
-    public void addHealth(int damage)
+    public void addHealth(float damage)
     {
         health = health + damage;
         healthBar.fillAmount = health / initialHealth;
