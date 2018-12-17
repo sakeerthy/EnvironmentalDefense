@@ -22,7 +22,7 @@ public class MouseOver : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        GameObject.Find("Canvas").transform.GetChild(textChild).gameObject.GetComponent<Text>().color = Color.red;
+       // GameObject.Find("Canvas").transform.GetChild(textChild).gameObject.GetComponent<Text>().color = Color.red;
     }
 
     private void OnMouseExit()
