@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 50458490634669860}
   - component: {fileID: 114781824135124882}
   - component: {fileID: 58206349499012444}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Runner
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 224300200330022356}
   - component: {fileID: 222412955644315912}
   - component: {fileID: 114782100652448298}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 224536737254096370}
   - component: {fileID: 222516097407231950}
   - component: {fileID: 114470428743619760}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 223519501149786866}
   - component: {fileID: 114115180852976934}
   - component: {fileID: 114148673675737694}
-  m_Layer: 5
+  m_Layer: 10
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1354441609867116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0.3, y: -2.24, z: 10}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 224201313962596010}
@@ -271,8 +271,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -591944819
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2c5d5ecdd8e04d142b8d28b24c5512b2, type: 3}
   m_Color: {r: 0.9687289, g: 1, b: 0, a: 1}

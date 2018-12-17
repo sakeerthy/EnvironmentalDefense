@@ -45,7 +45,7 @@ public class EnemyMovement : MonoBehaviour {
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "tower"){
+        if (other.gameObject.tag == "tower"){
             other.gameObject.GetComponent<TowerPosition>().subtractHealth(1);
             coll_timer = Time.fixedTime;
         }
