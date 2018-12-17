@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114781824135124882}
   - component: {fileID: 58206349499012444}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Heavy
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,10 +206,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce8968508024d754ba125d2b4a5fdd22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
   value: 2
   health: 0
-  initialHealth: 10
+  initialHealth: 20
   healthBar: {fileID: 114470428743619760}
   tower: {fileID: 0}
 --- !u!114 &114782100652448298
@@ -275,7 +275,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2c5d5ecdd8e04d142b8d28b24c5512b2, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.6981132, g: 0.036222856, b: 0.5620697, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
