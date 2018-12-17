@@ -37,7 +37,7 @@ public class MenuScript : MonoBehaviour
                     UnityEditor.EditorApplication.isPlaying = false;
                     Application.Quit();
                 }
-                else if(hit.transform.name == "MainMenu")
+                else if(hit.transform.name == "Back")
                 {
                     SceneManager.LoadScene(sceneName: "MainMenu");
                 }
