@@ -120,8 +120,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1508912116243132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.703, y: -1.511, z: 1}
-  m_LocalScale: {x: 0.3128375, y: 0.3399258, z: 1}
+  m_LocalPosition: {x: 1.703, y: -1.66, z: 1}
+  m_LocalScale: {x: 0.3128375, y: 0.31069216, z: 1}
   m_Children:
   - {fileID: 4576397074014342}
   - {fileID: 224181226339362664}
@@ -281,6 +281,8 @@ MonoBehaviour:
   towerType: Wall
   initialHealth: 30
   upgrade: 0
+  initial: {fileID: 21300000, guid: 41e2db5b18fa44c0b87beb86c0a00fdf, type: 3}
+  upgraded: {fileID: 21300000, guid: ac952f2eaeeeb46afa80be70cbe7cb4d, type: 3}
 --- !u!114 &114800243123553732
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -348,7 +350,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6ab79a26d60664414a3af5f76d49ca8d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 41e2db5b18fa44c0b87beb86c0a00fdf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -474,7 +476,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.55, y: 6.04}
+  m_AnchoredPosition: {x: -0.37, y: 4.91}
   m_SizeDelta: {x: 2, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224773899330231964
