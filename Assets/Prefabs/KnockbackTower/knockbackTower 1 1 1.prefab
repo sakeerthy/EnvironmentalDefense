@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 212010651968962238}
   - component: {fileID: 114081342704399188}
   - component: {fileID: 61989325205065988}
+  - component: {fileID: 114950861461706762}
   m_Layer: 0
   m_Name: Upgrade
   m_TagString: Untagged
@@ -414,6 +415,18 @@ MonoBehaviour:
   healthBar: {fileID: 114123138795143688}
   health: 0
   initialHealth: 10
+--- !u!114 &114950861461706762
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1698556637706150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5bc37891e243847ab820984e301b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popuptext: {fileID: 4760499889293794, guid: e7c221cabdb68b946bec26d50aefbda6, type: 2}
 --- !u!122 &122978474445909456
 Halo:
   m_ObjectHideFlags: 1
