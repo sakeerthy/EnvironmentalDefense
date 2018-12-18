@@ -137,7 +137,7 @@ public class TowerPosition : MonoBehaviour
                 } else if (towerType == "Basic")
                 {
                     lRend.SetPosition(1, enemyHit.transform.position);
-                    
+                    lRend.SetPosition(0, transform.position + offset);
                     lRend.enabled = true;
                     StartCoroutine(effectDelay());
                     fire(enemyHit.gameObject, enemyHit, 5);
