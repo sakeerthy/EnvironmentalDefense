@@ -194,6 +194,71 @@ Prefab:
       propertyPath: wallPrice
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 224763247306056462, guid: 141b69a6972e94c9ba0d179af56735fb,
+        type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: -76
+      objectReference: {fileID: 0}
+    - target: {fileID: 4522582361883230, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728137836745762, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728137836745762, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728137836745762, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728137836745762, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728137836745762, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728137836745762, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728137836745762, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4728137836745762, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1019174779414764, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
+      propertyPath: m_Name
+      value: coaltower
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511008967352810, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511008967352810, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4511008967352810, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -4.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4371938035967416, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4475122842922362, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
   m_IsPrefabAsset: 0
