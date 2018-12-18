@@ -219,7 +219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c634ec8cfefb6c946915b0eabfe54b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textChild: 0
 --- !u!212 &233683872
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -528,7 +527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c634ec8cfefb6c946915b0eabfe54b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textChild: 2
 --- !u!1 &1107590834
 GameObject:
   m_ObjectHideFlags: 0
@@ -571,7 +569,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c634ec8cfefb6c946915b0eabfe54b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textChild: 1
 --- !u!65 &1107590837
 BoxCollider:
   m_ObjectHideFlags: 0

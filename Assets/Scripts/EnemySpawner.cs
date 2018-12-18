@@ -12,6 +12,8 @@ public class EnemySpawner : MonoBehaviour
     public Vector3 spawnValues; //for locations 
 
     public float spawnWait;
+    public float hardSpawnWait;
+    public float veryHardSpawnWait;
     public int startWait;
 
     public float spawnMostWait;
@@ -27,16 +29,15 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-
         StartCoroutine(waitSpawner());
+        spawnWait = 60;
     }
 
     void Update()
     { //updates every frame 
 
-        spawnWait = 5;
         timer++;
-        if (timer > 60)
+        if (timer > spawnWait)
         {
             StartCoroutine(waitSpawner());
             timer = 0;
@@ -47,9 +48,12 @@ public class EnemySpawner : MonoBehaviour
         {
             rangeMax = 3.0f;
             rangeMin = -3.0f;
+            spawnWait = hardSpawnWait;
+              
         } else if (health > 60) {
             rangeMax = 2.0f;
             rangeMin = -2.0f;
+            spawnWait = veryHardSpawnWait;
         }
     }
 
