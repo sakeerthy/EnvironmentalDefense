@@ -61,8 +61,9 @@ public class currency : MonoBehaviour {
         if (name == "cannon")
         {
             Instantiate(CannonTower);
-        } else if (name  == "subtractCube")
+        } else if (name  == "coaltower")
         {
+            
             Instantiate(newTower);
         } else if (name == "wall")
         {
@@ -86,7 +87,7 @@ public class currency : MonoBehaviour {
                 {
                     addToBank(10);
                 }
-                else if (hit.transform.name == "subtractCube")
+                else if (hit.transform.name == "coaltower")
                 {
                     var amount = bank;
                     if (amount < basicPrice)
