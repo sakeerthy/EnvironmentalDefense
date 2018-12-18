@@ -288,9 +288,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad57b17c934ae147843d8bf70836419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offsetU: {x: -0.65, y: 0.6, z: 0}
   placed: 0
   halo: {fileID: 122359370114250414}
   towerRange: 2
+  towerRangeU: 3
   basicDelay: 0.7
   cannonDelay: 0
   inDelay: 0
@@ -304,6 +306,8 @@ MonoBehaviour:
   upgraded: {fileID: 21300000, guid: 57ddbc933fb484d6e8bcb6fc1ac4fb51, type: 3}
   gas: {fileID: 198090962881868630}
   cannonBall: {fileID: 0}
+  laserEnd: {fileID: 0}
+  laserTime: 0
 --- !u!114 &114778060244480980
 MonoBehaviour:
   m_ObjectHideFlags: 1
