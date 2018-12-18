@@ -246,23 +246,16 @@ GameObject:
     type: 2}
   m_PrefabInternal: {fileID: 45027312}
 --- !u!114 &388552628
---- !u!1 &361205625 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1270522656403360, guid: ed165dd5dd9feb44cb4d8cc5e61a95b9,
-    type: 2}
-  m_PrefabInternal: {fileID: 2086990405}
---- !u!114 &361205626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-   m_GameObject: {fileID: 361205625}
+  m_GameObject: {fileID: 388552623}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c5bc37891e243847ab820984e301b0b, type: 3}
+  m_Script: {fileID: 11500000, guid: c634ec8cfefb6c946915b0eabfe54b71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  popuptext: {fileID: 4760499889293794, guid: e7c221cabdb68b946bec26d50aefbda6, type: 2}
 --- !u!1 &448510778 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1650227795492648, guid: 141b69a6972e94c9ba0d179af56735fb,
@@ -376,6 +369,8 @@ MonoBehaviour:
   - {fileID: 1354441609867116, guid: 236f8b0ab45cab84a9e21d946bbd87d5, type: 2}
   spawnValues: {x: 0, y: 0, z: 0}
   spawnWait: 1
+  hardSpawnWait: 0
+  veryHardSpawnWait: 0
   startWait: 0
   spawnMostWait: 1
   spawnLeastWait: 0
@@ -788,23 +783,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74f10ddd8b54d544fb3ea0779006b706, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1505792278 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1270522656403360, guid: ed165dd5dd9feb44cb4d8cc5e61a95b9,
-    type: 2}
-  m_PrefabInternal: {fileID: 2102241010}
---- !u!114 &1505792279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1505792278}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c5bc37891e243847ab820984e301b0b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  popuptext: {fileID: 4760499889293794, guid: e7c221cabdb68b946bec26d50aefbda6, type: 2}
 --- !u!1001 &2086990405
 Prefab:
   m_ObjectHideFlags: 0
