@@ -126,8 +126,12 @@ public class TowerPosition : MonoBehaviour
             }
             Destroy(this.gameObject);
         }
-        transform.GetChild(0).gameObject.SetActive(halo.enabled);
+        if (upgrade == 0)
+        {
+            transform.GetChild(0).gameObject.SetActive(halo.enabled);
+        }
         if (upgrade == 1) {
+            transform.GetChild(0).gameObject.SetActive(false);
             gas.Stop();
         }
     }
