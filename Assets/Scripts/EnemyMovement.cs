@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour {
     public float health;
     public float initialHealth;
     public Image healthBar;
+    public GameObject effect;
 
     private float coll_timer;
     public Collider2D tower;
@@ -28,7 +29,7 @@ public class EnemyMovement : MonoBehaviour {
         if (health <= 0) {
             Debug.Log("killa");
             GameObject.Find("Happiness").GetComponent<happiness>().addHealth(0.3f);
-            Destroy(this.gameObject);
+            death();
         }
 
         if (Time.fixedTime - coll_timer >= 1.0f)
@@ -55,4 +56,14 @@ public class EnemyMovement : MonoBehaviour {
             coll_timer = Time.fixedTime;
         }
     }
+
+    void death()
+    {
+        Instantiate(effect);
+        effect.gameObject.transform.position = transform.position;
+        
+        Destroy(this.gameObject);
+    }
+
+    
 }

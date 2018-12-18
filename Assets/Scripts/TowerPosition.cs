@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class TowerPosition : MonoBehaviour
 {
-
+     Vector3 offset;
     public bool placed;
     public Behaviour halo;
     public float towerRange;
@@ -20,10 +20,12 @@ public class TowerPosition : MonoBehaviour
     public Sprite initial;
     public Sprite upgraded;
     public ParticleSystem gas;
+    LineRenderer lRend;
 
     // Use this for initialization
     void Start()
     {
+        offset = new Vector3(.2f,1, 0);
         upgrade = 0;
         health = initialHealth;
         healthBar.fillAmount = health / initialHealth;
@@ -39,6 +41,13 @@ public class TowerPosition : MonoBehaviour
             gas.Play();
             ParticleSystem.EmissionModule em = gas.emission;
             em.enabled = true;
+        }
+        if(towerType == "Basic")
+        {
+            lRend = GetComponent<LineRenderer>();
+            lRend.positionCount = 2;
+            lRend.SetPosition(0, transform.position + offset);
+            lRend.enabled = false;
         }
     }
 
@@ -127,12 +136,22 @@ public class TowerPosition : MonoBehaviour
                     }
                 } else if (towerType == "Basic")
                 {
+                    lRend.SetPosition(1, enemyHit.transform.position);
+                    
+                    lRend.enabled = true;
+                    StartCoroutine(effectDelay());
                     fire(enemyHit.gameObject, enemyHit, 5);
                 }
                 inDelay = true;
                 StartCoroutine(fireDelay());
             }
         }
+    }
+
+    IEnumerator effectDelay()
+    {
+        yield return new WaitForSeconds(.3f);
+        lRend.enabled = false;
     }
 
     void fire(GameObject enemy, Collider2D enemyHit, int damage)
@@ -146,6 +165,8 @@ public class TowerPosition : MonoBehaviour
         inDelay = false;
 
     }
+
+
 
     public void subtractHealth(int damage)
     {
