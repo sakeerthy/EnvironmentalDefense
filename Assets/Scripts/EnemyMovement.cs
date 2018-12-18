@@ -23,7 +23,7 @@ public class EnemyMovement : MonoBehaviour {
         healthBar.fillAmount = health / initialHealth;
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(1, 0) * speed;
-        damageDelay = true;
+        damageDelay = false;
 	}
 	
 	// Update is called once per frame
@@ -60,22 +60,26 @@ public class EnemyMovement : MonoBehaviour {
 
     private void OnCollisionStay2D(Collision2D other)
     {
+        
         if (!damageDelay)
         {
-            if (other.gameObject.tag == "tower")
+       
+            if (other.gameObject.CompareTag("tower"))
             {
+          
                 other.gameObject.GetComponent<TowerPosition>().subtractHealth(1);
                 coll_timer = Time.fixedTime;
                 damageDelay = true;
                 StartCoroutine(delay());
             }
-            if (other.gameObject.tag == "knockback")
+            if (other.gameObject.name == "knockback")
             {
                 other.gameObject.GetComponent<knockbackTowerPosition>().subtractHealth(1);
                 coll_timer = Time.fixedTime;
                 damageDelay = true;
                 StartCoroutine(delay());
             }
+            
         }
     }
 
