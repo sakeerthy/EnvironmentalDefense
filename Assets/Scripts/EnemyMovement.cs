@@ -49,5 +49,10 @@ public class EnemyMovement : MonoBehaviour {
             other.gameObject.GetComponent<TowerPosition>().subtractHealth(1);
             coll_timer = Time.fixedTime;
         }
+        if (other.gameObject.tag == "knockback")
+        {
+            other.gameObject.GetComponent<knockbackTowerPosition>().subtractHealth(1);
+            coll_timer = Time.fixedTime;
+        }
     }
 }
