@@ -508,7 +508,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -150}
-  m_SizeDelta: {x: 550, y: 500}
+  m_SizeDelta: {x: 800, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345729979
 MonoBehaviour:
@@ -531,10 +531,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 78786acc2902a5c4796e408b7bc024cd, type: 3}
-    m_FontSize: 20
+    m_FontSize: 18
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -542,19 +542,17 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Your battle begins in the developing world, on the cusp of the industrial
+  m_Text: "Your battle begins in the developing world, on the cusp of the industrial
     revolution. The new invention of coal powered factories has boosted economic growth,
     but at a cost. The pollution has spawned in sludge monsters that are attacking
-    your village! Your goal is stop them while keeping your villagers happy.
-
-
-    Click to select a tower from the menu, then click again to place it. Once a tower
-    is placed, you can click it to upgrade it, or right click to delete the tower.
+    your village! \n\nYour goal: Stop the monsters while keeping your villagers happy.\n\nWin
+    by maximizing your happiness. If your happiness falls too low, you lose.\n\nClick
+    to select a tower from the menu, then click again to place it, or right click
+    to cancel your purchase. Once a tower is placed, you can click it to upgrade it.\n\n
     On the right is a happiness bar. It decreases over time for every tower you have
     that is harmful to the environment, as well as every time you let a monster invade
-    your city. You can increase happiness by upgrading towers to be powered by renewable
-    energy and by killing monsters. You win when you have maximized the happiness
-    of your village!  '
+    your city.\n\nUpgdrade your towers to run on renewable energy. Not only will this
+    increase your happiness, but it will make the tower stronger."
 --- !u!222 &1345729980
 CanvasRenderer:
   m_ObjectHideFlags: 0
