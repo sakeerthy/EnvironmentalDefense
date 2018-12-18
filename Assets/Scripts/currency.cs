@@ -11,22 +11,33 @@ public class currency : MonoBehaviour {
     public GameObject CannonTower;
     public GameObject WallTower;
     public GameObject knockbackTower;
+    bool isMessage;
+    new GUIStyle style;
+    float timer = 0;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         bank = 30;
         bankText.text = string.Concat("$",bank.ToString());
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update()
+    {
         GameButtons();
-	}
+        timer++;
+        if(timer > 60)
+        {
+            isMessage = false;
+        }
+    }
 
     public bool upgradeTower(int amount) {
         if ((bank - amount) < 0) {
             Debug.Log("Not enough money");
+            isMessage = true;
+            timer = 0;
             return false;
         } else {
             bank -= amount;
@@ -76,6 +87,8 @@ public class currency : MonoBehaviour {
                     var amount = bank;
                     if (amount < 10)
                     {
+                        isMessage = true;
+                        timer = 0;
                         Debug.Log("Not enough money");
                     }
                     else
@@ -88,6 +101,8 @@ public class currency : MonoBehaviour {
                     var amount = bank;
                     if (amount < 15)
                     {
+                        isMessage = true;
+                        timer = 0;
                         Debug.Log("Not enough money");
                     }
                     else
@@ -100,6 +115,8 @@ public class currency : MonoBehaviour {
                     var amount = bank;
                     if (amount < 50)
                     {
+                        isMessage = true;
+                        timer = 0;
                         Debug.Log("Not enough money");
                     }
                     else
@@ -112,6 +129,8 @@ public class currency : MonoBehaviour {
                     var amount = bank;
                     if(amount < 40)
                     {
+                        isMessage = true;
+                        timer = 0;
                         Debug.Log("Not enough money");
                     }
                     else
@@ -121,6 +140,23 @@ public class currency : MonoBehaviour {
                 }
 
             }
+        }
+    }
+    private void OnGUI()
+    {
+        GUIStyle myButtonStyle = new GUIStyle(GUI.skin.button);
+        myButtonStyle.fontSize = 20;
+
+        // Load and set Font
+        Font myFont = (Font)Resources.Load("Fonts/comic", typeof(Font));
+        myButtonStyle.font = myFont;
+
+        // Set color for selected and unselected buttons
+        myButtonStyle.normal.textColor = Color.red;
+        myButtonStyle.hover.textColor = Color.red;
+        if (isMessage)
+        {
+            GUI.Label(new Rect(450, 250, 400, 50), "Not enough money", myButtonStyle);
         }
     }
 }
