@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemText : MonoBehaviour {
+public class ItemText : MonoBehaviour
+{
     public Transform popuptext;
     public static bool textstatus = false;
 
@@ -21,7 +22,7 @@ public class ItemText : MonoBehaviour {
             else if (gameObject.name == "cannon")
             {
                 popuptext.GetComponent<TextMesh>().text = "Cannon with splash damage\nhigh damage\n$15";
-            } 
+            }
             else if (gameObject.name == "wall")
             {
                 popuptext.GetComponent<TextMesh>().text = "Wall does no damage\nVery high health\n$50";
@@ -30,29 +31,38 @@ public class ItemText : MonoBehaviour {
             {
                 popuptext.GetComponent<TextMesh>().text = "Knocks back enemies\n$40";
             }
-            else if(gameObject.name == "Upgrade")
+            else if (gameObject.name == "Upgrade")
             {
                 popuptext.GetComponent<TextMesh>().text = "Upgrade\n$40";
             }
 
             textstatus = true;
-            Instantiate(popuptext, new Vector3(transform.position.x - 4, transform.position.y + 1, 0), popuptext.rotation);
+            Instantiate(popuptext, new Vector3(transform.position.x - 4, transform.position.y + 1, -1), popuptext.rotation);
         }
-
     }
+
 
     private void OnMouseExit()
     {
-            textstatus = false;
-
+        textstatus = false;
     }
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            textstatus = false;
+        }
+    }
 }
