@@ -33,7 +33,25 @@ public class ItemText : MonoBehaviour {
             }
             else if(gameObject.name == "Upgrade")
             {
-                popuptext.GetComponent<TextMesh>().text = "Upgrade\n$40";
+                int upgradePrice = 0;
+                if(gameObject.transform.parent.CompareTag("tower"))
+                {
+                    if(gameObject.GetComponentInParent<TowerPosition>().towerType == "Basic")
+                    {
+                        upgradePrice = GameObject.Find("Upgrade").GetComponent<upgrade>().basicUpgradePrice;
+                    }
+                    if (gameObject.GetComponentInParent<TowerPosition>().towerType == "Wall")
+                    {
+                        upgradePrice = GameObject.Find("Upgrade").GetComponent<upgrade>().wallUpgradePrice;
+                    }
+                    if (gameObject.GetComponentInParent<TowerPosition>().towerType == "Cannon")
+                    {
+                        upgradePrice = GameObject.Find("Upgrade").GetComponent<upgrade>().cannonUpgradePrice;
+                    }
+
+                }
+                
+                popuptext.GetComponent<TextMesh>().text = "Upgrade: " + upgradePrice.ToString();
             }
 
             textstatus = true;

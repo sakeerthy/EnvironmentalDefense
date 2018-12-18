@@ -48,12 +48,12 @@ public class EnemySpawner : MonoBehaviour
         {
             rangeMax = 3.0f;
             rangeMin = -3.0f;
-            spawnWait = hardSpawnWait;
+            spawnWait = veryHardSpawnWait;
               
         } else if (health > 60) {
             rangeMax = 2.0f;
             rangeMin = -2.0f;
-            spawnWait = veryHardSpawnWait;
+            spawnWait = hardSpawnWait;
         }
     }
 

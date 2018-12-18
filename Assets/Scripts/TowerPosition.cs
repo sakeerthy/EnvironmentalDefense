@@ -148,6 +148,7 @@ public class TowerPosition : MonoBehaviour
         }
 
         health = initialHealth;
+        healthBar.fillAmount = 1;
     }
 
     private void OnMouseOver()
