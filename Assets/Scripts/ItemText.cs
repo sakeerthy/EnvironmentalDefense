@@ -55,7 +55,7 @@ public class ItemText : MonoBehaviour {
             }
 
             textstatus = true;
-            Instantiate(popuptext, new Vector3(transform.position.x - 4, transform.position.y + 1, 0), popuptext.rotation);
+            Instantiate(popuptext, new Vector3(transform.position.x - 4, transform.position.y + 1, -1), popuptext.rotation);
         }
 
     }

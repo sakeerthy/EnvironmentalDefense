@@ -234,6 +234,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a65af97e0aa48da9e6e8a6a38909c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicUpgradePrice: 20
+  cannonUpgradePrice: 60
+  knockbackUpgradePrice: 30
+  wallUpgradePrice: 40
 --- !u!114 &114139109392171026
 MonoBehaviour:
   m_ObjectHideFlags: 1

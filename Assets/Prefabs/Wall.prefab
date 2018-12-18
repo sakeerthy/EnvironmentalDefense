@@ -303,6 +303,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a65af97e0aa48da9e6e8a6a38909c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  basicUpgradePrice: 20
+  cannonUpgradePrice: 60
+  knockbackUpgradePrice: 30
+  wallUpgradePrice: 40
 --- !u!114 &114730709959965770
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -314,10 +318,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ad57b17c934ae147843d8bf70836419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offsetU: {x: 0, y: 0, z: 0}
   placed: 0
   halo: {fileID: 122962937071605558}
   towerRange: 0
-  delay: 0
+  towerRangeU: 0
+  basicDelay: 0
+  cannonDelay: 0
   inDelay: 0
   collide: {fileID: 61937715109967110}
   healthBar: {fileID: 114039246473000740}
@@ -328,6 +335,9 @@ MonoBehaviour:
   initial: {fileID: 21300000, guid: 41e2db5b18fa44c0b87beb86c0a00fdf, type: 3}
   upgraded: {fileID: 21300000, guid: ac952f2eaeeeb46afa80be70cbe7cb4d, type: 3}
   gas: {fileID: 198219382399035652}
+  cannonBall: {fileID: 0}
+  laserEnd: {fileID: 0}
+  laserTime: 0
 --- !u!114 &114800243123553732
 MonoBehaviour:
   m_ObjectHideFlags: 1
