@@ -30,6 +30,10 @@ public class ItemText : MonoBehaviour {
             {
                 popuptext.GetComponent<TextMesh>().text = "Knocks back enemies\n$40";
             }
+            else if(gameObject.name == "Upgrade")
+            {
+                popuptext.GetComponent<TextMesh>().text = "Upgrade\n$40";
+            }
 
             textstatus = true;
             Instantiate(popuptext, new Vector3(transform.position.x - 4, transform.position.y + 1, 0), popuptext.rotation);

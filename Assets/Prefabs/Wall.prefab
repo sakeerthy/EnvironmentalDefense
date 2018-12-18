@@ -93,6 +93,7 @@ GameObject:
   - component: {fileID: 212711217204254274}
   - component: {fileID: 114689386313230004}
   - component: {fileID: 61652022863558102}
+  - component: {fileID: 114559247099014582}
   m_Layer: 0
   m_Name: Upgrade
   m_TagString: Untagged
@@ -248,6 +249,18 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114559247099014582
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1526361876613200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5bc37891e243847ab820984e301b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popuptext: {fileID: 4760499889293794, guid: e7c221cabdb68b946bec26d50aefbda6, type: 2}
 --- !u!114 &114689386313230004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -283,6 +296,7 @@ MonoBehaviour:
   upgrade: 0
   initial: {fileID: 21300000, guid: 41e2db5b18fa44c0b87beb86c0a00fdf, type: 3}
   upgraded: {fileID: 21300000, guid: ac952f2eaeeeb46afa80be70cbe7cb4d, type: 3}
+  gas: {fileID: 0}
 --- !u!114 &114800243123553732
 MonoBehaviour:
   m_ObjectHideFlags: 1

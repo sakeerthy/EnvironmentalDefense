@@ -37,7 +37,7 @@ public class currency : MonoBehaviour {
 
     public void addToBank(int amount) {
         bank += amount;
-        bankText.text = bank.ToString();
+        bankText.text = string.Concat("$", bank.ToString());
     }
 
     public void subtractFromBank(int amount, string name) {

@@ -21,10 +21,9 @@ public class upgrade : MonoBehaviour {
             {
                 if (GameObject.Find("CurrencyManager").GetComponent<currency>().upgradeTower(30))
                 {
-                    Debug.Log("Upgraded!!");
                     GameObject.Find("Happiness").GetComponent<happiness>().addHealth(5);
                     transform.parent.gameObject.GetComponent<TowerPosition>().upgradeTower();
-                    //transform.parent.gameObject.transform.localScale += new Vector3(1.5f, 1.5f, 1.5f);
+                    gameObject.SetActive(false);
                 }
                 else
                 {
