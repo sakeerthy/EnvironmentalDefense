@@ -11,7 +11,7 @@ public class MouseOver : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GameObject.Find("Canvas").transform.GetChild(textChild).gameObject.GetComponent<Text>().color = Color.black;
+        //GameObject.Find("Canvas").transform.GetChild(textChild).gameObject.GetComponent<Text>().color = Color.black;
     }
 
     // Update is called once per frame
@@ -27,6 +27,6 @@ public class MouseOver : MonoBehaviour
 
     private void OnMouseExit()
     {
-        GameObject.Find("Canvas").transform.GetChild(textChild).gameObject.GetComponent<Text>().color = Color.black;
+        //GameObject.Find("Canvas").transform.GetChild(textChild).gameObject.GetComponent<Text>().color = Color.black;
     }
 }

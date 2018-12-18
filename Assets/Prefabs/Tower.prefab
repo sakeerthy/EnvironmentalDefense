@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 212326650612728650}
   - component: {fileID: 114106654884867080}
   - component: {fileID: 61187493498731286}
+  - component: {fileID: 114042123683854222}
   m_Layer: 0
   m_Name: Upgrade
   m_TagString: Untagged
@@ -209,6 +210,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 5, y: 12}
   m_EdgeRadius: 0
+--- !u!114 &114042123683854222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1270522656403360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c5bc37891e243847ab820984e301b0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popuptext: {fileID: 4760499889293794, guid: e7c221cabdb68b946bec26d50aefbda6, type: 2}
 --- !u!114 &114106654884867080
 MonoBehaviour:
   m_ObjectHideFlags: 1
