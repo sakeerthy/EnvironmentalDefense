@@ -14,6 +14,10 @@ public class currency : MonoBehaviour {
     bool isMessage;
     new GUIStyle style;
     float timer = 0;
+    public int basicPrice;
+    public int knockbackPrice;
+    public int cannonPrice;
+    public int wallPrice;
 
 
     // Use this for initialization
@@ -53,7 +57,7 @@ public class currency : MonoBehaviour {
 
     public void subtractFromBank(int amount, string name) {
         bank -= amount;
-        bankText.text = bank.ToString();
+        bankText.text = string.Concat("$", bank.ToString());
         if (name == "cannon")
         {
             Instantiate(CannonTower);
@@ -85,7 +89,7 @@ public class currency : MonoBehaviour {
                 else if (hit.transform.name == "subtractCube")
                 {
                     var amount = bank;
-                    if (amount < 10)
+                    if (amount < basicPrice)
                     {
                         isMessage = true;
                         timer = 0;
@@ -93,13 +97,13 @@ public class currency : MonoBehaviour {
                     }
                     else
                     {
-                        subtractFromBank(10, hit.transform.name);
+                        subtractFromBank(basicPrice, hit.transform.name);
                     }
                 }
                 else if (hit.transform.name == "cannon")
                 {
                     var amount = bank;
-                    if (amount < 15)
+                    if (amount < cannonPrice)
                     {
                         isMessage = true;
                         timer = 0;
@@ -107,13 +111,13 @@ public class currency : MonoBehaviour {
                     }
                     else
                     {
-                        subtractFromBank(15, hit.transform.name);
+                        subtractFromBank(cannonPrice, hit.transform.name);
                     }
                 }
                 else if (hit.transform.name == "wall")
                 {
                     var amount = bank;
-                    if (amount < 50)
+                    if (amount < wallPrice)
                     {
                         isMessage = true;
                         timer = 0;
@@ -121,13 +125,13 @@ public class currency : MonoBehaviour {
                     }
                     else
                     {
-                        subtractFromBank(50, hit.transform.name);
+                        subtractFromBank(wallPrice, hit.transform.name);
                     }
                 }
                 else if (hit.transform.name == "buyKnockbackTower")
                 {
                     var amount = bank;
-                    if(amount < 40)
+                    if(amount < knockbackPrice)
                     {
                         isMessage = true;
                         timer = 0;
@@ -135,7 +139,7 @@ public class currency : MonoBehaviour {
                     }
                     else
                     {
-                        subtractFromBank(40, hit.transform.name);
+                        subtractFromBank(knockbackPrice, hit.transform.name);
                     }
                 }
 

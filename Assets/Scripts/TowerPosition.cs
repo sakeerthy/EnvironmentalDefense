@@ -6,9 +6,11 @@ using UnityEngine.UI;
 public class TowerPosition : MonoBehaviour
 {
      Vector3 offset;
+    public Vector3 offsetU;
     public bool placed;
     public Behaviour halo;
     public float towerRange;
+    public float towerRangeU;
     public float basicDelay;
     public float cannonDelay;
     public bool inDelay;
@@ -79,6 +81,26 @@ public class TowerPosition : MonoBehaviour
             placed = true;
             collide.enabled = true;
         }
+        if(Input.GetMouseButtonDown(1) && !placed)
+        {
+            int price = 0;
+            switch (towerType)
+            {
+                case "Basic":
+                    price = GameObject.Find("CurrencyManager").GetComponent<currency>().basicPrice;
+                    break;
+
+                case "Cannon":
+                    price = GameObject.Find("CurrencyManager").GetComponent<currency>().cannonPrice;
+                    break;
+
+                case "Wall":
+                    price = GameObject.Find("CurrencyManager").GetComponent<currency>().wallPrice;
+                    break;
+            }
+            GameObject.Find("CurrencyManager").GetComponent<currency>().addToBank(price);
+            Destroy(this.gameObject);
+        }
         if (placed)
         {
             if (!inDelay && towerType == "Basic")
@@ -142,20 +164,43 @@ public class TowerPosition : MonoBehaviour
     void detectEnemy()
     {
         Collider2D enemyHit = null;
+        if (upgrade == 0)
+        {
+            enemyHit = Physics2D.OverlapCircle(transform.position, towerRange);
+        }
+        else
+        {
+            enemyHit = Physics2D.OverlapCircle(transform.position, towerRangeU);
+        }
 
-        enemyHit = Physics2D.OverlapCircle(transform.position, towerRange);
+        
 
         if (enemyHit)
         {
             if (enemyHit.gameObject.CompareTag("enemy"))
             {
                 
-            
-                    lRend.SetPosition(1, enemyHit.transform.position);
+                if(upgrade == 0)
+                {
                     lRend.SetPosition(0, transform.position + offset);
+                }
+                else
+                {
+                    lRend.SetPosition(0, transform.position + offsetU);
+                }
+                    lRend.SetPosition(1, enemyHit.transform.position);
+                    
                     lRend.enabled = true;
                     StartCoroutine(effectDelay());
+
+                if (upgrade == 0)
+                {
                     fire(enemyHit.gameObject, enemyHit, 5);
+                }
+                else
+                {
+                    fire(enemyHit.gameObject, enemyHit, 10);
+                }
                 
                 inDelay = true;
                 StartCoroutine(fireDelay(basicDelay));
@@ -238,7 +283,7 @@ public class TowerPosition : MonoBehaviour
             {
                 if (end == null)
                 {
-                    end = Instantiate(laserEnd, target.transform.position, Quaternion.identity);
+                    end = Instantiate(laserEnd, transform.position, Quaternion.identity);
                 }
                 end.GetComponent<SpriteRenderer>().enabled = false;
             }

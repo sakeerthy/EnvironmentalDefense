@@ -60,6 +60,12 @@ public class knockbackTowerPosition : MonoBehaviour
             placed = true;
             collider.enabled = true;
         }
+        if (Input.GetMouseButtonDown(1) && !placed)
+        {
+            int price = GameObject.Find("CurrencyManager").GetComponent<currency>().knockbackPrice;
+            GameObject.Find("CurrencyManager").GetComponent<currency>().addToBank(price);
+            Destroy(this.gameObject);
+        }
         if (placed)
         {
             if (!inDelay)
