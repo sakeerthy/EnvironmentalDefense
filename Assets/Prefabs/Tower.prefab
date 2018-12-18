@@ -234,8 +234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a65af97e0aa48da9e6e8a6a38909c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicUpgradePrice: 20
-  cannonUpgradePrice: 60
+  basicUpgradePrice: 40
+  cannonUpgradePrice: 80
   knockbackUpgradePrice: 30
   wallUpgradePrice: 40
 --- !u!114 &114139109392171026
@@ -295,7 +295,7 @@ MonoBehaviour:
   offsetU: {x: -0.65, y: 0.6, z: 0}
   placed: 0
   halo: {fileID: 122359370114250414}
-  towerRange: 2
+  towerRange: 1.5
   towerRangeU: 3
   basicDelay: 0.7
   cannonDelay: 0

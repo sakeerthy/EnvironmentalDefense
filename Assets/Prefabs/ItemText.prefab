@@ -114,13 +114,7 @@ TextMesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1085662708582838}
-  m_Text: 'Wall does no damage
-
-    Very high health
-
-    30
-
-    Lose 0.1 Happiness per second'
+  m_Text: 'Upgrade: 0'
   m_OffsetZ: 0
   m_CharacterSize: 0.1
   m_LineSpacing: 1

@@ -10,7 +10,7 @@ public class ItemText : MonoBehaviour {
     {
         if (textstatus == false)
         {
-            if (gameObject.name == "subtractCube")
+            if (gameObject.name == "coaltower")
             {
                 popuptext.GetComponent<TextMesh>().text = "Basic tower\nLow health and damage\n" + GameObject.Find("CurrencyManager").GetComponent<currency>().basicPrice.ToString()
                     + "\nLose 0.1 Happiness per second";
@@ -49,6 +49,10 @@ public class ItemText : MonoBehaviour {
                         upgradePrice = GameObject.Find("Upgrade").GetComponent<upgrade>().cannonUpgradePrice;
                     }
 
+                }
+                else
+                {
+                    upgradePrice = 20;
                 }
                 
                 popuptext.GetComponent<TextMesh>().text = "Upgrade: " + upgradePrice.ToString();
