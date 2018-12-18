@@ -11,6 +11,7 @@ public class ballCollider : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         StartCoroutine(death());
+
 	}
 
     private void OnCollisionEnter2D(Collision2D collision)
