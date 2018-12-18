@@ -25,6 +25,12 @@ public class TowerPosition : MonoBehaviour
     LineRenderer lRend;
 
 
+    public GameObject laserEnd;
+    private GameObject  end;
+    public float laserTime;
+    bool damageDelay = false;
+
+
 
     // Use this for initialization
     void Start()
@@ -46,11 +52,12 @@ public class TowerPosition : MonoBehaviour
             ParticleSystem.EmissionModule em = gas.emission;
             em.enabled = true;
         }
-        if(towerType == "Basic")
+        if(towerType == "Basic" || towerType == "Cannon")
         {
             lRend = GetComponent<LineRenderer>();
             lRend.positionCount = 2;
             lRend.SetPosition(0, transform.position + offset);
+            lRend.SetPosition(1, transform.position + offset);
             lRend.enabled = false;
         }
     }
@@ -91,6 +98,10 @@ public class TowerPosition : MonoBehaviour
         }
         if (health <= 0)
         {
+            if (towerType == "Cannon" && upgrade != 0)
+            {
+                Destroy(end);
+            }
             Destroy(this.gameObject);
         }
         transform.GetChild(0).gameObject.SetActive(halo.enabled);
@@ -213,7 +224,7 @@ public class TowerPosition : MonoBehaviour
             }
             else
             {
-                fireLaser(target.transform.position);
+                fireLaser(target);
             }
 
         }
@@ -222,6 +233,15 @@ public class TowerPosition : MonoBehaviour
             var dir = Vector3.left;
             var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);
+            lRend.enabled = false;
+            if (upgrade != 0)
+            {
+                if (end == null)
+                {
+                    end = Instantiate(laserEnd, target.transform.position, Quaternion.identity);
+                }
+                end.GetComponent<SpriteRenderer>().enabled = false;
+            }
 
         }
 
@@ -240,61 +260,31 @@ public class TowerPosition : MonoBehaviour
 
     }
 
-    void fireLaser(Vector3 target)
+    void fireLaser(Collider2D target)
     {
-        /*
-        if (start == null)
+      
+        lRend.enabled = true;
+        if(end == null)
         {
-            start = Instantiate(laserStart) as GameObject;
-            start.transform.parent = this.transform;
+            end = Instantiate(laserEnd, target.transform.position, Quaternion.identity);
         }
-
-        if (middle == null)
+        end.GetComponent<SpriteRenderer>().enabled = true;
+        end.transform.rotation = transform.rotation;
+        end.transform.position = target.transform.position - (target.transform.position - transform.position).normalized * .5f;
+        lRend.SetPosition(1, target.transform.position - (target.transform.position - transform.position).normalized *.2f);
+        lRend.SetPosition(0, transform.position + (target.transform.position - transform.position).normalized * .2f);
+        if (!damageDelay)
         {
-            middle = Instantiate(laserMiddle) as GameObject;
-            middle.transform.parent = this.transform;
-            middle.transform.localPosition = Vector2.zero;
+            target.gameObject.GetComponent<EnemyMovement>().subtractHealth(1, target);
+            damageDelay = true;
         }
+        StartCoroutine(laserDelay());
+    }
 
-        float maxLaserSize = 20f;
-        float currentLaserSize = maxLaserSize;
-
-        Vector2 direction = new Vector2(target.x - transform.position.x, target.y - transform.position.y);
-        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, direction, maxLaserSize);
-
-        if(hit.collider != null)
-        {
-            currentLaserSize = Vector2.Distance(hit.point, this.transform.position);
-
-            if (end == null)
-            {
-                end = Instantiate(laserEnd) as GameObject;
-                end.transform.parent = this.transform;
-                end.transform.localPosition = Vector2.zero;
-            }
-        }
-        else
-        {
-            if(end != null)
-            {
-                Destroy(end);
-            }
-        }
-
-        float startSpriteWidth = start.GetComponent<Renderer>().bounds.size.y;
-        float endSpriteWidth = 0f;
-        if (end != null) endSpriteWidth = end.GetComponent<Renderer>().bounds.size.x;
-
-        middle.transform.localScale = new Vector3(middle.transform.localScale.x, currentLaserSize - startSpriteWidth, middle.transform.localScale.z);
-        middle.transform.rotation = transform.rotation;
-        middle.transform.localPosition = new Vector2(((target.x - transform.position.x)/ 2f), ((target.y - transform.position.y) / 2f));
-
-       
-        if (end != null)
-        {
-            end.transform.localPosition = new Vector2(((target.x - transform.position.x) - .1f), ((target.y - transform.position.y) - .1f));
-        }
-        */
+    IEnumerator laserDelay()
+    {
+        yield return new WaitForSeconds(laserTime);
+        damageDelay = false;
     }
     
 }
