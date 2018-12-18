@@ -35,7 +35,7 @@ public class MenuScript : MonoBehaviour
                 }
                 else if (hit.transform.name == "End")
                 {
-                    UnityEditor.EditorApplication.isPlaying = false;
+                    //UnityEditor.EditorApplication.isPlaying = false;
                     Application.Quit();
                 }
                 else if(hit.transform.name == "Back")
@@ -48,7 +48,7 @@ public class MenuScript : MonoBehaviour
                 }
                 else if (hit.transform.name == "Quit")
                 {
-                    UnityEditor.EditorApplication.isPlaying = false;
+                    //UnityEditor.EditorApplication.isPlaying = false;
                     Application.Quit();
                 }
             }

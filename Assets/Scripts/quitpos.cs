@@ -26,7 +26,7 @@ public class quitpos : MonoBehaviour {
             {
                 if (hit.transform.name == "Quit")
                 {
-                    UnityEditor.EditorApplication.isPlaying = false;
+                    //UnityEditor.EditorApplication.isPlaying = false;
                     Application.Quit();
                 }
             }
