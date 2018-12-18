@@ -9,7 +9,8 @@ public class TowerPosition : MonoBehaviour
     public bool placed;
     public Behaviour halo;
     public float towerRange;
-    public float delay;
+    public float basicDelay;
+    public float cannonDelay;
     public bool inDelay;
     public Behaviour collide;
     public Image healthBar;
@@ -20,7 +21,16 @@ public class TowerPosition : MonoBehaviour
     public Sprite initial;
     public Sprite upgraded;
     public ParticleSystem gas;
+    public GameObject cannonBall;
     LineRenderer lRend;
+
+
+    public GameObject laserEnd;
+    private GameObject  end;
+    public float laserTime;
+    bool damageDelay = false;
+
+
 
     // Use this for initialization
     void Start()
@@ -42,11 +52,12 @@ public class TowerPosition : MonoBehaviour
             ParticleSystem.EmissionModule em = gas.emission;
             em.enabled = true;
         }
-        if(towerType == "Basic")
+        if(towerType == "Basic" || towerType == "Cannon")
         {
             lRend = GetComponent<LineRenderer>();
             lRend.positionCount = 2;
             lRend.SetPosition(0, transform.position + offset);
+            lRend.SetPosition(1, transform.position + offset);
             lRend.enabled = false;
         }
     }
@@ -70,13 +81,27 @@ public class TowerPosition : MonoBehaviour
         }
         if (placed)
         {
-            if (!inDelay)
+            if (!inDelay && towerType == "Basic")
             {
+
                 detectEnemy();
+
             }
+
+            if(towerType == "Cannon")
+            {
+                aim();
+             
+            }
+
+           
         }
         if (health <= 0)
         {
+            if (towerType == "Cannon" && upgrade != 0)
+            {
+                Destroy(end);
+            }
             Destroy(this.gameObject);
         }
         transform.GetChild(0).gameObject.SetActive(halo.enabled);
@@ -125,25 +150,15 @@ public class TowerPosition : MonoBehaviour
             if (enemyHit.gameObject.CompareTag("enemy"))
             {
                 
-                if (towerType == "Cannon")
-                {
-                    fire(enemyHit.gameObject, enemyHit, 10);
-                    Collider2D[] nearbyEnemies;
-                    nearbyEnemies = Physics2D.OverlapCircleAll(enemyHit.gameObject.transform.position, 1);
-                    foreach(Collider2D enemy in nearbyEnemies)
-                    {
-                        fire(enemy.gameObject, enemy, 3);
-                    }
-                } else if (towerType == "Basic")
-                {
+            
                     lRend.SetPosition(1, enemyHit.transform.position);
                     lRend.SetPosition(0, transform.position + offset);
                     lRend.enabled = true;
                     StartCoroutine(effectDelay());
                     fire(enemyHit.gameObject, enemyHit, 5);
-                }
+                
                 inDelay = true;
-                StartCoroutine(fireDelay());
+                StartCoroutine(fireDelay(basicDelay));
             }
         }
     }
@@ -159,7 +174,7 @@ public class TowerPosition : MonoBehaviour
         enemy.GetComponent<EnemyMovement>().subtractHealth(damage, enemyHit);
     }
 
-    IEnumerator fireDelay()
+    IEnumerator fireDelay(float delay)
     {
         yield return new WaitForSeconds(1 * delay);
         inDelay = false;
@@ -174,4 +189,102 @@ public class TowerPosition : MonoBehaviour
         healthBar.fillAmount = health / initialHealth;
     }
 
+    void aim()
+    {
+        Collider2D[] allHit;
+        Collider2D target = null;
+        float position = transform.position.x + towerRange;
+        allHit = Physics2D.OverlapCircleAll(transform.position, towerRange);
+
+        foreach(Collider2D hit in allHit)
+        {
+           if(hit.gameObject.CompareTag("enemy"))
+            {
+                if(hit.transform.position.x < position)
+                {
+                    target = hit;
+                    position = target.transform.position.x;
+                }
+            }
+              
+        }
+
+        if(target != null)
+        {
+            var dir = target.transform.position - transform.position;
+            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);
+
+            if (upgrade == 0)
+            {
+                if (!inDelay)
+                {
+                    fireCannon(target.transform.position);
+                }
+            }
+            else
+            {
+                fireLaser(target);
+            }
+
+        }
+        else
+        {
+            var dir = Vector3.left;
+            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);
+            lRend.enabled = false;
+            if (upgrade != 0)
+            {
+                if (end == null)
+                {
+                    end = Instantiate(laserEnd, target.transform.position, Quaternion.identity);
+                }
+                end.GetComponent<SpriteRenderer>().enabled = false;
+            }
+
+        }
+
+       
+
+    }
+
+    void fireCannon(Vector3 target)
+    {
+      
+        GameObject clone;
+        clone = Instantiate(cannonBall, transform.position + transform.rotation * new Vector3(-1,0,0), Quaternion.identity);
+        clone.GetComponent<Rigidbody2D>().AddForce((target - transform.position).normalized * 300f);
+        inDelay = true;
+        StartCoroutine(fireDelay(cannonDelay));
+
+    }
+
+    void fireLaser(Collider2D target)
+    {
+      
+        lRend.enabled = true;
+        if(end == null)
+        {
+            end = Instantiate(laserEnd, target.transform.position, Quaternion.identity);
+        }
+        end.GetComponent<SpriteRenderer>().enabled = true;
+        end.transform.rotation = transform.rotation;
+        end.transform.position = target.transform.position - (target.transform.position - transform.position).normalized * .5f;
+        lRend.SetPosition(1, target.transform.position - (target.transform.position - transform.position).normalized *.2f);
+        lRend.SetPosition(0, transform.position + (target.transform.position - transform.position).normalized * .2f);
+        if (!damageDelay)
+        {
+            target.gameObject.GetComponent<EnemyMovement>().subtractHealth(1, target);
+            damageDelay = true;
+        }
+        StartCoroutine(laserDelay());
+    }
+
+    IEnumerator laserDelay()
+    {
+        yield return new WaitForSeconds(laserTime);
+        damageDelay = false;
+    }
+    
 }
