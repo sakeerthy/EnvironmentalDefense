@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -74,4 +74,12 @@ public class ItemText : MonoBehaviour {
 	void Update () {
 		
 	}
+  
+  private void OnMouseOver()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            textstatus = false;
+        }
+    }
 }
