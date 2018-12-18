@@ -291,7 +291,8 @@ MonoBehaviour:
   placed: 0
   halo: {fileID: 122359370114250414}
   towerRange: 2
-  delay: 2
+  basicDelay: 0.7
+  cannonDelay: 0
   inDelay: 0
   collide: {fileID: 61549917097388462}
   healthBar: {fileID: 114214467290046160}
@@ -302,6 +303,7 @@ MonoBehaviour:
   initial: {fileID: 21300000, guid: 1ccee0a2372c5450ba8a9269379c786c, type: 3}
   upgraded: {fileID: 21300000, guid: 57ddbc933fb484d6e8bcb6fc1ac4fb51, type: 3}
   gas: {fileID: 198090962881868630}
+  cannonBall: {fileID: 0}
 --- !u!114 &114778060244480980
 MonoBehaviour:
   m_ObjectHideFlags: 1

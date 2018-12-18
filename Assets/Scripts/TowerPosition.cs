@@ -9,7 +9,8 @@ public class TowerPosition : MonoBehaviour
     public bool placed;
     public Behaviour halo;
     public float towerRange;
-    public float delay;
+    public float basicDelay;
+    public float cannonDelay;
     public bool inDelay;
     public Behaviour collide;
     public Image healthBar;
@@ -20,7 +21,10 @@ public class TowerPosition : MonoBehaviour
     public Sprite initial;
     public Sprite upgraded;
     public ParticleSystem gas;
+    public GameObject cannonBall;
     LineRenderer lRend;
+
+
 
     // Use this for initialization
     void Start()
@@ -70,10 +74,20 @@ public class TowerPosition : MonoBehaviour
         }
         if (placed)
         {
-            if (!inDelay)
+            if (!inDelay && towerType == "Basic")
             {
+
                 detectEnemy();
+
             }
+
+            if(towerType == "Cannon")
+            {
+                aim();
+             
+            }
+
+           
         }
         if (health <= 0)
         {
@@ -125,25 +139,15 @@ public class TowerPosition : MonoBehaviour
             if (enemyHit.gameObject.CompareTag("enemy"))
             {
                 
-                if (towerType == "Cannon")
-                {
-                    fire(enemyHit.gameObject, enemyHit, 10);
-                    Collider2D[] nearbyEnemies;
-                    nearbyEnemies = Physics2D.OverlapCircleAll(enemyHit.gameObject.transform.position, 1);
-                    foreach(Collider2D enemy in nearbyEnemies)
-                    {
-                        fire(enemy.gameObject, enemy, 3);
-                    }
-                } else if (towerType == "Basic")
-                {
+            
                     lRend.SetPosition(1, enemyHit.transform.position);
                     lRend.SetPosition(0, transform.position + offset);
                     lRend.enabled = true;
                     StartCoroutine(effectDelay());
                     fire(enemyHit.gameObject, enemyHit, 5);
-                }
+                
                 inDelay = true;
-                StartCoroutine(fireDelay());
+                StartCoroutine(fireDelay(basicDelay));
             }
         }
     }
@@ -159,7 +163,7 @@ public class TowerPosition : MonoBehaviour
         enemy.GetComponent<EnemyMovement>().subtractHealth(damage, enemyHit);
     }
 
-    IEnumerator fireDelay()
+    IEnumerator fireDelay(float delay)
     {
         yield return new WaitForSeconds(1 * delay);
         inDelay = false;
@@ -174,4 +178,123 @@ public class TowerPosition : MonoBehaviour
         healthBar.fillAmount = health / initialHealth;
     }
 
+    void aim()
+    {
+        Collider2D[] allHit;
+        Collider2D target = null;
+        float position = transform.position.x + towerRange;
+        allHit = Physics2D.OverlapCircleAll(transform.position, towerRange);
+
+        foreach(Collider2D hit in allHit)
+        {
+           if(hit.gameObject.CompareTag("enemy"))
+            {
+                if(hit.transform.position.x < position)
+                {
+                    target = hit;
+                    position = target.transform.position.x;
+                }
+            }
+              
+        }
+
+        if(target != null)
+        {
+            var dir = target.transform.position - transform.position;
+            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);
+
+            if (upgrade == 0)
+            {
+                if (!inDelay)
+                {
+                    fireCannon(target.transform.position);
+                }
+            }
+            else
+            {
+                fireLaser(target.transform.position);
+            }
+
+        }
+        else
+        {
+            var dir = Vector3.left;
+            var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle + 180, Vector3.forward);
+
+        }
+
+       
+
+    }
+
+    void fireCannon(Vector3 target)
+    {
+      
+        GameObject clone;
+        clone = Instantiate(cannonBall, transform.position + transform.rotation * new Vector3(-1,0,0), Quaternion.identity);
+        clone.GetComponent<Rigidbody2D>().AddForce((target - transform.position).normalized * 300f);
+        inDelay = true;
+        StartCoroutine(fireDelay(cannonDelay));
+
+    }
+
+    void fireLaser(Vector3 target)
+    {
+        /*
+        if (start == null)
+        {
+            start = Instantiate(laserStart) as GameObject;
+            start.transform.parent = this.transform;
+        }
+
+        if (middle == null)
+        {
+            middle = Instantiate(laserMiddle) as GameObject;
+            middle.transform.parent = this.transform;
+            middle.transform.localPosition = Vector2.zero;
+        }
+
+        float maxLaserSize = 20f;
+        float currentLaserSize = maxLaserSize;
+
+        Vector2 direction = new Vector2(target.x - transform.position.x, target.y - transform.position.y);
+        RaycastHit2D hit = Physics2D.Raycast(this.transform.position, direction, maxLaserSize);
+
+        if(hit.collider != null)
+        {
+            currentLaserSize = Vector2.Distance(hit.point, this.transform.position);
+
+            if (end == null)
+            {
+                end = Instantiate(laserEnd) as GameObject;
+                end.transform.parent = this.transform;
+                end.transform.localPosition = Vector2.zero;
+            }
+        }
+        else
+        {
+            if(end != null)
+            {
+                Destroy(end);
+            }
+        }
+
+        float startSpriteWidth = start.GetComponent<Renderer>().bounds.size.y;
+        float endSpriteWidth = 0f;
+        if (end != null) endSpriteWidth = end.GetComponent<Renderer>().bounds.size.x;
+
+        middle.transform.localScale = new Vector3(middle.transform.localScale.x, currentLaserSize - startSpriteWidth, middle.transform.localScale.z);
+        middle.transform.rotation = transform.rotation;
+        middle.transform.localPosition = new Vector2(((target.x - transform.position.x)/ 2f), ((target.y - transform.position.y) / 2f));
+
+       
+        if (end != null)
+        {
+            end.transform.localPosition = new Vector2(((target.x - transform.position.x) - .1f), ((target.y - transform.position.y) - .1f));
+        }
+        */
+    }
+    
 }
