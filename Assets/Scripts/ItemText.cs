@@ -45,8 +45,6 @@ public class ItemText : MonoBehaviour
     private void OnMouseExit()
     {
         textstatus = false;
-        Destroy(popuptext);
-
     }
     // Use this for initialization
     void Start()
