@@ -83,11 +83,7 @@ public class currency : MonoBehaviour {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out hit))
             {
-                if (hit.transform.name == "addCube")
-                {
-                    addToBank(10);
-                }
-                else if (hit.transform.name == "coaltower")
+                if (hit.transform.name == "coaltower")
                 {
                     var amount = bank;
                     if (amount < basicPrice)
