@@ -551,7 +551,7 @@ MonoBehaviour:
     to cancel your purchase. Once a tower is placed, you can click it to upgrade it.\n\n
     On the right is a happiness bar. It decreases over time for every tower you have
     that is harmful to the environment, as well as every time you let a monster invade
-    your city.\n\nUpgdrade your towers to run on renewable energy. Not only will this
+    your city.\n\nUpgrade your towers to run on renewable energy. Not only will this
     increase your happiness, but it will make the tower stronger."
 --- !u!222 &1345729980
 CanvasRenderer:
