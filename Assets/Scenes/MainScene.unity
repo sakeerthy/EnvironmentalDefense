@@ -174,6 +174,26 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114428929400467760, guid: 141b69a6972e94c9ba0d179af56735fb,
+        type: 2}
+      propertyPath: basicPrice
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114428929400467760, guid: 141b69a6972e94c9ba0d179af56735fb,
+        type: 2}
+      propertyPath: knockbackPrice
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114428929400467760, guid: 141b69a6972e94c9ba0d179af56735fb,
+        type: 2}
+      propertyPath: cannonPrice
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 114428929400467760, guid: 141b69a6972e94c9ba0d179af56735fb,
+        type: 2}
+      propertyPath: wallPrice
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 141b69a6972e94c9ba0d179af56735fb, type: 2}
   m_IsPrefabAsset: 0
