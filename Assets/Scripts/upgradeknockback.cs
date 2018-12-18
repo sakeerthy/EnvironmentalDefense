@@ -22,9 +22,9 @@ public class upgradeknockback : MonoBehaviour
         {
             if (transform.parent.gameObject.GetComponent<knockbackTowerPosition>().upgrade == 0)
             {
-                if (GameObject.Find("CurrencyManager").GetComponent<currency>().upgradeTower(30))
+                if (GameObject.Find("CurrencyManager").GetComponent<currency>().upgradeTower(20))
                 {
-                    Debug.Log("Upgraded!!");
+                   
                     GameObject.Find("Happiness").GetComponent<happiness>().addHealth(5);
                     transform.parent.gameObject.GetComponent<knockbackTowerPosition>().upgradeTower();
                     //transform.parent.gameObject.transform.localScale += new Vector3(1.5f, 1.5f, 1.5f);

@@ -303,8 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76a65af97e0aa48da9e6e8a6a38909c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicUpgradePrice: 20
-  cannonUpgradePrice: 60
+  basicUpgradePrice: 40
+  cannonUpgradePrice: 80
   knockbackUpgradePrice: 30
   wallUpgradePrice: 40
 --- !u!114 &114730709959965770
@@ -330,7 +330,7 @@ MonoBehaviour:
   healthBar: {fileID: 114039246473000740}
   health: 0
   towerType: Wall
-  initialHealth: 30
+  initialHealth: 60
   upgrade: 0
   initial: {fileID: 21300000, guid: 41e2db5b18fa44c0b87beb86c0a00fdf, type: 3}
   upgraded: {fileID: 21300000, guid: ac952f2eaeeeb46afa80be70cbe7cb4d, type: 3}
