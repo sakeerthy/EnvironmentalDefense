@@ -2,31 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MouseOver : MonoBehaviour
 {
-
-    public int textChild;
-
     // Use this for initialization
     void Start()
     {
-        GameObject.Find("Canvas").transform.GetChild(textChild).gameObject.GetComponent<Text>().color = Color.black;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     private void OnMouseEnter()
     {
-       // GameObject.Find("Canvas").transform.GetChild(textChild).gameObject.GetComponent<Text>().color = Color.red;
+        transform.GetComponent<SpriteRenderer>().color = Color.gray;
     }
 
     private void OnMouseExit()
     {
-        GameObject.Find("Canvas").transform.GetChild(textChild).gameObject.GetComponent<Text>().color = Color.black;
+        transform.GetComponent<SpriteRenderer>().color = Color.white;
     }
 }

@@ -30,6 +30,7 @@ public class MenuScript : MonoBehaviour
             {
                 if (hit.transform.name == "Start")
                 {
+                    hit.transform.GetComponent<SpriteRenderer>().color = Color.gray;
                     SceneManager.LoadScene(sceneName: "MainScene");
                 }
                 else if (hit.transform.name == "End")
