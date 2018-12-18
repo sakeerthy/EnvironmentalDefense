@@ -54,7 +54,7 @@ public class TowerPosition : MonoBehaviour
             lTemp.y = mousePosition.y;
             transform.localPosition = lTemp;
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && mousePosition.x < 5)
         {
             placed = true;
             collide.enabled = true;
