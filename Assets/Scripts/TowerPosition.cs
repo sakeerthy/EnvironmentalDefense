@@ -33,7 +33,6 @@ public class TowerPosition : MonoBehaviour
     bool damageDelay = false;
 
 
-
     // Use this for initialization
     void Start()
     {
@@ -141,6 +140,13 @@ public class TowerPosition : MonoBehaviour
             upgrade++;
             GetComponent<SpriteRenderer>().sprite = upgraded;
         }
+
+        if(towerType == "Wall")
+        {
+            initialHealth *= 2;
+        }
+
+        health = initialHealth;
     }
 
     private void OnMouseOver()
