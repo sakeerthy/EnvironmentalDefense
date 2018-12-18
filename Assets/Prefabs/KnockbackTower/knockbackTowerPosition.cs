@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class knockbackTowerPosition : MonoBehaviour
 {
@@ -11,17 +12,35 @@ public class knockbackTowerPosition : MonoBehaviour
     public float towerRange;
     public float delay;
     public bool inDelay;
-    public Behaviour collider2D;
-
+    public Behaviour collider;
+    public Sprite initial;
+    public Sprite upgraded;
+    public ParticleSystem gas;
     public GameObject knockbackCircle;
+    public int upgrade;
+    public Image healthBar;
+    public float health;
+    public int initialHealth;
+
     // Use this for initialization
     void Start()
     {
+        upgrade = 0;
+        health = initialHealth;
+        healthBar.fillAmount = health / initialHealth;
         inDelay = false;
         halo.enabled = false;
         placed = false;
-        collider2D.enabled = false;
-        
+        collider.enabled = false;
+        transform.GetChild(0).gameObject.SetActive(false);
+        InvokeRepeating("decreaseHappiness", 1.0f, 1.0f);
+        GetComponent<SpriteRenderer>().sprite = initial;
+        if (gas)
+        {
+            gas.Play();
+            ParticleSystem.EmissionModule em = gas.emission;
+            em.enabled = true;
+        }
     }
 
     // Update is called once per frame
@@ -39,7 +58,7 @@ public class knockbackTowerPosition : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             placed = true;
-            collider2D.enabled = true;
+            collider.enabled = true;
         }
         if (placed)
         {
@@ -49,7 +68,25 @@ public class knockbackTowerPosition : MonoBehaviour
             }
             
         }
+        if (health <= 0)
+        {
+            Destroy(this.gameObject);
+        }
+        transform.GetChild(0).gameObject.SetActive(halo.enabled);
+        if (upgrade == 1)
+        {
+            gas.Stop();
+        }
 
+    }
+
+    public void upgradeTower()
+    {
+        if (upgrade == 0)
+        {
+            upgrade++;
+            GetComponent<SpriteRenderer>().sprite = upgraded;
+        }
     }
 
     private void OnMouseOver()
@@ -63,15 +100,21 @@ public class knockbackTowerPosition : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1))
         {
-            Debug.Log("Hi");
-            Debug.Log(gameObject);
             GameObject.Destroy(this.gameObject);
+        }
+    }
+
+    void decreaseHappiness()
+    {
+        if (upgrade == 0)
+        {
+            GameObject.Find("Happiness").GetComponent<happiness>().subtractHealth(0.1f);
+
         }
     }
 
     public void fire()
     {
-        Debug.Log("fire");
         Collider2D[] enemyColliders = Physics2D.OverlapCircleAll(new Vector2(transform.position.x, transform.position.y), towerRange);
 
         foreach (var collider2D in enemyColliders)
@@ -93,6 +136,12 @@ public class knockbackTowerPosition : MonoBehaviour
         inDelay = false;
 
     }
-   
+
+    public void subtractHealth(int damage)
+    {
+        health = health - damage;
+        healthBar.fillAmount = health / initialHealth;
+    }
+
 }
 

@@ -8,6 +8,7 @@ TagManager:
   - tower
   - Collison effect
   - End
+  - knockback
   layers:
   - Default
   - TransparentFX
