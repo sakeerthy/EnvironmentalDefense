@@ -59,6 +59,7 @@ public class TowerPosition : MonoBehaviour
             lRend.positionCount = 2;
             lRend.SetPosition(0, transform.position + offset);
             lRend.SetPosition(1, transform.position + offset);
+            
             lRend.enabled = false;
         }
     }
@@ -326,8 +327,8 @@ public class TowerPosition : MonoBehaviour
         end.GetComponent<SpriteRenderer>().enabled = true;
         end.transform.rotation = transform.rotation;
         end.transform.position = target.transform.position - (target.transform.position - transform.position).normalized * .5f;
-        lRend.SetPosition(1, target.transform.position - (target.transform.position - transform.position).normalized *.2f);
-        lRend.SetPosition(0, transform.position + (target.transform.position - transform.position).normalized * .2f);
+        lRend.SetPosition(1, target.transform.position - (target.transform.position - transform.position).normalized *.5f);
+        lRend.SetPosition(0, transform.position + (target.transform.position - transform.position).normalized * .7f);
         if (!damageDelay)
         {
             target.gameObject.GetComponent<EnemyMovement>().subtractHealth(1, target);

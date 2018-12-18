@@ -6,8 +6,10 @@ public class colliderScript : MonoBehaviour
     public float delay;
     public float scalingFactor, maxSize;
     private bool inDelay = false;
+    bool upgradedSize;
     private void Start()
     {
+        upgradedSize = false;
         GetComponent<Collider2D>().enabled = false;
     }
     void Update()
@@ -23,6 +25,12 @@ public class colliderScript : MonoBehaviour
                 inDelay = true;
               StartCoroutine(knockbackDelay());
             }
+        }
+
+        if(GetComponentInParent<knockbackTowerPosition>().upgrade > 0 && !upgradedSize)
+        {
+            maxSize *= 1.4f;
+            upgradedSize = true;
         }
     }
 

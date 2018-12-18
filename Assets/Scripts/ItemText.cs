@@ -12,7 +12,8 @@ public class ItemText : MonoBehaviour {
         {
             if (gameObject.name == "subtractCube")
             {
-                popuptext.GetComponent<TextMesh>().text = "Basic tower\nLow health and damage\n$10";
+                popuptext.GetComponent<TextMesh>().text = "Basic tower\nLow health and damage\n" + GameObject.Find("CurrencyManager").GetComponent<currency>().basicPrice.ToString()
+                    + "\nLose 0.1 Happiness per second";
             }
             else if (gameObject.name == "GasTower")
             {
@@ -20,15 +21,15 @@ public class ItemText : MonoBehaviour {
             }
             else if (gameObject.name == "cannon")
             {
-                popuptext.GetComponent<TextMesh>().text = "Cannon with splash damage\nhigh damage\n$15";
+                popuptext.GetComponent<TextMesh>().text = "Cannon with splash damage\nhigh damage\n$15" + GameObject.Find("CurrencyManager").GetComponent<currency>().cannonPrice.ToString() + "\nLose 0.1 Happiness per second"; ;
             } 
             else if (gameObject.name == "wall")
             {
-                popuptext.GetComponent<TextMesh>().text = "Wall does no damage\nVery high health\n$50";
+                popuptext.GetComponent<TextMesh>().text = "Wall does no damage\nVery high health\n$50" + GameObject.Find("CurrencyManager").GetComponent<currency>().wallPrice.ToString() + "\nLose 0.1 Happiness per second"; ;
             }
             else if (gameObject.name == "buyKnockbackTower")
             {
-                popuptext.GetComponent<TextMesh>().text = "Knocks back enemies\n$40";
+                popuptext.GetComponent<TextMesh>().text = "Knocks back enemies\n$40" + GameObject.Find("CurrencyManager").GetComponent<currency>().knockbackPrice.ToString() + "\nLose 0.1 Happiness per second"; ;
             }
             else if(gameObject.name == "Upgrade")
             {
