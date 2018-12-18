@@ -1,9 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ItemText : MonoBehaviour
-{
+public class ItemText : MonoBehaviour {
     public Transform popuptext;
     public static bool textstatus = false;
 
@@ -32,34 +31,51 @@ public class ItemText : MonoBehaviour
             {
                 popuptext.GetComponent<TextMesh>().text = "Knocks back enemies\n" + GameObject.Find("CurrencyManager").GetComponent<currency>().knockbackPrice.ToString() + "\nLose 0.1 Happiness per second"; ;
             }
-            else if (gameObject.name == "Upgrade")
+            else if(gameObject.name == "Upgrade")
             {
-                popuptext.GetComponent<TextMesh>().text = "Upgrade\n$40";
+                int upgradePrice = 0;
+                if(gameObject.transform.parent.CompareTag("tower"))
+                {
+                    if(gameObject.GetComponentInParent<TowerPosition>().towerType == "Basic")
+                    {
+                        upgradePrice = GameObject.Find("Upgrade").GetComponent<upgrade>().basicUpgradePrice;
+                    }
+                    if (gameObject.GetComponentInParent<TowerPosition>().towerType == "Wall")
+                    {
+                        upgradePrice = GameObject.Find("Upgrade").GetComponent<upgrade>().wallUpgradePrice;
+                    }
+                    if (gameObject.GetComponentInParent<TowerPosition>().towerType == "Cannon")
+                    {
+                        upgradePrice = GameObject.Find("Upgrade").GetComponent<upgrade>().cannonUpgradePrice;
+                    }
+
+                }
+                
+                popuptext.GetComponent<TextMesh>().text = "Upgrade: " + upgradePrice.ToString();
             }
 
             textstatus = true;
-            Instantiate(popuptext, new Vector3(transform.position.x - 4, transform.position.y + 1, -1), popuptext.rotation);
+            Instantiate(popuptext, new Vector3(transform.position.x - 4, transform.position.y + 1, 0), popuptext.rotation);
         }
-    }
 
+    }
 
     private void OnMouseExit()
     {
-        textstatus = false;
+            textstatus = false;
+
     }
     // Use this for initialization
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    private void OnMouseOver()
+    void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+		
+	}
+  
+  private void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(0))
         {
